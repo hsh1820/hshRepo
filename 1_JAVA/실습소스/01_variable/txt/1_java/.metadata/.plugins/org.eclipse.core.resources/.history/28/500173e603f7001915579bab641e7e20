@@ -1,0 +1,7 @@
+package com.kh.chap1.condition;
+
+public class B_Switch {
+	
+	// switch 문은 if - else if  - else 와 비슷한 조건문임.
+	// 
+}

@@ -1,0 +1,10 @@
+package com.kh.practice2;
+
+import java.util.Scanner;
+
+public class CastingPractice2 {
+	Scanner sc = new Scanner(System.in);
+	
+	System.out.print("±¹¾î : ");
+	
+}

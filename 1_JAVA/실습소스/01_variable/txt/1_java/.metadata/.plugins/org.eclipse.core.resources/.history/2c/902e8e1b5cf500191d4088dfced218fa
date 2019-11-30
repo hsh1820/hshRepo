@@ -1,0 +1,96 @@
+package com.kh.variable;
+
+public class A_Variable {
+	 
+	// 변수를 사용하지 않는 경우
+	public void noVariable() {
+		System.out.println("========== 변수 사용 X ==========");
+		System.out.println(2 * 3.14159265389793 * 5);
+		System.out.println(3.14159265389793 * 5 * 5 );
+		System.out.println(3.14159265389793 * 5 * 5 * 20 );
+		System.out.println(4 * 3.14159265389793 * 5 * 5 );
+	}
+	// 변수를 사용한 경우
+	public void usingVariable() {
+		double pi = 3.14159265389793; // 원주율
+		int r = 5; // 반지름
+		int h = 20; // 높이
+		
+		System.out.println("=========== 변수사용 O ==========");
+		System.out.println( 2 * pi * r ); // 원의 둘레
+		System.out.println( pi * r * r ); // 원의 넓이
+		System.out.println( pi * r * r * h ); // 원기둥 부피
+		System.out.println( 4 * pi * r * r ); // 구의 겉넓이
+				
+		
+	}
+	
+	
+	
+	
+	
+	
+	// 변수 선언
+	public void declareVariable() {
+		// 1. 논리형
+		boolean isTrue; // 1byte -> true / false
+				
+		// 2. 정수형
+		byte bNum; // 1byte == 8bit == 2^8
+		short sNum; // 2byte == 16bnit == 2^16
+		int iNum; // 4byte -> 정수형 기본 자료형
+		long lNum; // 8byte 
+				
+		// 3. 실수형 -> 부동소수점방식
+		float fNum; // 4byte
+		double dNum; // 8byte -> 실수형 기본 자료형
+		
+		// 4. 문자형
+		char ch; // 2byte 유니코드
+		//실제 저장되는 값은 정수지만, 매칭되는 문자가 출력됨
+		
+		// 5. 문자열(참조형)
+		String str; // 4byte -> 참조되는 주소값(숫자)를 저장하기때문
+		
+		
+		//		int 1num;
+		//		int 정수;
+		
+		
+		// 논리형 값 대입
+		isTrue = true;
+		// 논리형의 리터럴은 true / false 밖에 없음
+		
+		// 정수형 값 대입
+		iNum = 100; // 일반 정수는 int의 리터럴 표현법
+				
+		lNum = 200L;
+		// long의 리터럴은 정수 뒤에 l, L 을 붙임
+		
+		bNum = 127;		
+		sNum = 32767;
+		// byte, short 자료형은 옛날 코드와의 호환을 위해 남아있음
+		// --> 따로 리터럴 표현식이 없어서 int표현식을 같이 사용
+		 
+		// 실수형 값 대입
+		fNum = 1.1234567f; 
+		// float의 리터럴은 실수 뒤에 f 또는 F 표시
+		// float는 소수점 아래 8번째 자리에서 반올림함.
+		
+		dNum = 1.123456789012345; 
+		// double은 소수점 아래 16번째 자리에서 반올림함.
+		// 일반 실수는 double의 리터럴 
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

@@ -1,0 +1,10 @@
+package com.kh.practice;
+
+
+public class OperatorPractice {
+	public void practice1() {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Á¤¼ö : " );
+		
+	}
+}

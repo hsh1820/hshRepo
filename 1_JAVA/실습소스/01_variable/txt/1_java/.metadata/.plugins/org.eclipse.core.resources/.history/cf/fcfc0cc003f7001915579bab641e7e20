@@ -1,0 +1,8 @@
+package com.kh.run;
+
+public class PracticeRun {
+	public static void main(String[] args]) {
+		
+		
+	}
+}

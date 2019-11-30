@@ -1,0 +1,18 @@
+package com.kh.practice2;
+
+import java.util.Scanner;
+
+public class CastingPractice2 {
+	public void practice1() {
+	float kor;
+	float eng;
+	float mat;
+	float score;
+		Scanner sc = new Scanner(System.in);
+	
+	System.out.print("국어 : ");
+	i=sc.nextFloat()
+	System.out.print("영어 : ");
+	System.out.print("수학 : ");
+	}
+}

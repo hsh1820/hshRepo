@@ -1,0 +1,8 @@
+package com.kh.practice2;
+import com.kh.test.Test;
+
+public class Run {
+	public static void main(String[] args) {
+	
+	}
+}

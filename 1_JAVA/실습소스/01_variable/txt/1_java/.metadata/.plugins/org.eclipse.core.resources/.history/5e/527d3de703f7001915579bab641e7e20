@@ -1,0 +1,12 @@
+package com.kh.variable;
+
+public class C_Constant {
+	
+	// 상수 테스트 
+	public void finalKeyword() {
+		// 변수 선언
+		// 상수 선언
+		
+	}
+	
+}

@@ -1,0 +1,14 @@
+package com.kh.run;
+
+import com.kh.operator.A_LogicalNegation;
+
+public class Run {
+
+	public static void main(String[] args) {
+
+		// 논리 부정 연산자
+		A_LogicalNegation ln = new A_LogicalNegation(); 
+		ln.method1();
+	}
+
+}

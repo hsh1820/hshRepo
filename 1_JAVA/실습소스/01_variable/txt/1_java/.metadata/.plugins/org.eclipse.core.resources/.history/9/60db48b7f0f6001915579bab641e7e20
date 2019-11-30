@@ -1,0 +1,17 @@
+package com.kh.chap1.condition;
+
+public class A_If {
+	
+	// 단독 if 문
+	/*
+	 * if(조건식) {
+	 * 
+	 * 수행할 코드 작성
+	 * 
+	 * }
+	 * 
+	 * 
+	 * 
+	 * */
+	
+}

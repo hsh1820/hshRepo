@@ -1,0 +1,15 @@
+package com.kh.variable;
+
+public class C_Constant {
+	
+	// 상수 테스트 
+	public void finalKeyword() {
+		// 변수 선언 및 초기화
+		int num1 = 23;
+		
+		// 상수 선언 및 초기화
+		final int NUM2 = 100;
+		// --> 상수의 이름은 무조건 대문자
+	}
+	
+}

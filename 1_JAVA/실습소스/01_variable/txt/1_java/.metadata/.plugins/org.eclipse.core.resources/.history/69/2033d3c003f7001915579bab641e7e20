@@ -1,0 +1,18 @@
+package com.kh.operator;
+
+import java.util.Scanner;
+
+public class C_Arithmetic {
+	// 산술 연산자
+	// 기본적인 사칙연산 (+ - * / ) + % (나머지) 5가지로 구성
+	// [* / %] 가 우선순위가 높음
+	
+	
+	public void method1() {
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.print("첫 번째 정수 입력 : ");
+		int num1 = sc.nextInt();
+		
+	}
+}

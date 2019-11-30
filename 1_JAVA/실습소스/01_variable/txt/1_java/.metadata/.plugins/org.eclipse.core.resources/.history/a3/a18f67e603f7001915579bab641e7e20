@@ -1,0 +1,15 @@
+package com.kh.variable;
+
+public class F_Print {
+	
+	public void printMethod() {
+	
+		// A (줄바꿈)
+		System.out.println("A");
+		
+		System.out.printf("%c\n",'A'); 
+		// (err)%c의 형식이 char이기 때문에 ""값 넣을 수 없음
+						// 출력 형식, 변수 or 값
+		
+	}
+}

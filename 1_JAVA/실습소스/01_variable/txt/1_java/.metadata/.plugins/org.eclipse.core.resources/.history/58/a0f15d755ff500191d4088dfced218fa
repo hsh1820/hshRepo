@@ -1,0 +1,11 @@
+package com.kh.variable;
+
+public class B_KeyboardInput {
+
+	public void inputScanner1() {
+		Scanner sc = new Scanner(System.in);
+		
+		
+	}
+	
+}

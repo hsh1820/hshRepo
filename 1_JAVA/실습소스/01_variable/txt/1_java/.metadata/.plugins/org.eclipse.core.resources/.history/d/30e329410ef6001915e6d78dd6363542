@@ -1,0 +1,13 @@
+package com.kh.test;
+
+public class Run {
+ public static void main(String[] args) {
+	 VariablePractice1 VP1 = new VariablePractice1();
+	 VariablePractice2 VP2 = new VariablePractice2();
+	 VariablePractice3 VP3 = new VariablePractice3();
+//	 VP1.practicet1();
+//	 VP2.practicet1();
+	 VP3.practice1();
+	 
+ }
+}
