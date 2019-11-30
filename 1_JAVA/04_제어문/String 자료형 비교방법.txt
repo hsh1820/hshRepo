@@ -1,0 +1,15 @@
+		/* 문자열(String)끼리의 값 비교 방법
+		 * 
+		 * String 자료형은 == (비교연산자)로는 값이 같은지 비교 불가
+		 * 
+		 * ** equals()라는 String 제공 메소드를 사용해야 함.
+		 * 
+		 * ex)
+		 * String str = "abc";
+		 * 
+		 * str == "abc"  -> false (비교 불가)
+		 * 
+		 * str.equals("abc")  -> true
+		 * 
+		 * 
+		 * */

@@ -1,0 +1,32 @@
+	public void method3() {
+		
+		// 산술 연산자 + 증감연산자
+		
+		int a = 5;
+		int b = 10;
+		
+		int c = (++a) + b; 
+		
+		int d = c / a; 
+		
+		int e = c % a; 
+		
+		int f = e++; 
+		
+		int g = (--b) + (d--); 
+		
+		int h = 2;
+		
+		int i = a++ + b / (--c / f) * (g-- - d) % (++e + h);
+		
+		
+		System.out.println("a  : " +a); 
+		System.out.println("b  : " +b); 
+		System.out.println("c  : " +c); 
+		System.out.println("d  : " +d); 
+		System.out.println("e  : " +e); 
+		System.out.println("f  : " +f); 
+		System.out.println("g  : " +g); 
+		System.out.println("h  : " +h); 
+		System.out.println("i  : " +i);
+	}
