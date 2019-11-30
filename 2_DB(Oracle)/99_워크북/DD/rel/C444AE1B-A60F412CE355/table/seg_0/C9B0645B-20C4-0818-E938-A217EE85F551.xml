@@ -1,0 +1,91 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C9B0645B-20C4-0818-E938-A217EE85F551" schemaObject="D4323D20-0EDF-8644-46C7-4027E823D606" name="DEPARTMENT">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-21 00:37:10 UTC</createdTime>
+<commentInRDBMS>부서</commentInRDBMS>
+<ownerDesignName>DD</ownerDesignName>
+<importedID>1502B186-7C1A-7939-6436-AB0C7B73DFD4</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="DEPT_ID" id="CE30C0F3-D657-6F66-2212-1B51B0213D2A">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-21 00:37:10 UTC</createdTime>
+<commentInRDBMS>부서코드</commentInRDBMS>
+<ownerDesignName>DD</ownerDesignName>
+<importedID>BAAC0555-1DAC-8C85-013A-DD07AFF1157F</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>2 BYTE</dataTypeSize>
+<ownDataTypeParameters>2 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DEPT_TITLE" id="16713ACB-BD6D-A5DC-44DD-4276C35C0761">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-21 00:37:10 UTC</createdTime>
+<commentInRDBMS>부서명</commentInRDBMS>
+<ownerDesignName>DD</ownerDesignName>
+<importedID>A461BA47-FDD0-3B68-5202-3318787AB1B6</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>35 BYTE</dataTypeSize>
+<ownDataTypeParameters>35 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="LOCATION_ID" id="35695AE6-EC47-D685-FB03-850F2E56BF28">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-21 00:37:10 UTC</createdTime>
+<commentInRDBMS>지역코드</commentInRDBMS>
+<ownerDesignName>DD</ownerDesignName>
+<importedID>88361A2D-DFD3-A692-09F2-28B932CE5051</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>2 BYTE</dataTypeSize>
+<ownDataTypeParameters>2 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C774E20E-DEAF-DC88-D416-328BB80E5295" referredColumn="2D06C037-F1AC-797C-E0C2-ABEB126BB33B"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="BB15284D-950E-E09C-7FA9-D22AFA8F2B4A" name="DEPARTMENT_PK">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-21 00:37:10 UTC</createdTime>
+<ownerDesignName>DD</ownerDesignName>
+<importedID>E1843FC9-8136-1E71-DB12-5BB72DFA04E4</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CE30C0F3-D657-6F66-2212-1B51B0213D2A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="F801BA4F-23C8-1271-4019-58C7A5262098" schemaObject="D4323D20-0EDF-8644-46C7-4027E823D606" name="엔터티1_PK2">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-21 00:37:10 UTC</createdTime>
+<ownerDesignName>DD</ownerDesignName>
+<importedID>915E52E8-85BF-B22B-9252-AF92F992D121</importedID>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CE30C0F3-D657-6F66-2212-1B51B0213D2A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D283234F-EBF3-42C9-E0E0-AF335F818C24" name="SYS_C007158">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-21 00:37:10 UTC</createdTime>
+<ownerDesignName>DD</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="35695AE6-EC47-D685-FB03-850F2E56BF28"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

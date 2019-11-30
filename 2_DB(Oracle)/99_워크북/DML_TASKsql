@@ -1,0 +1,104 @@
+-- 계열 정보를 저장할 카테고리 테이블을 만들려고 한다. 다음과 같은 테이블을 작성하시오
+-- 테이블 이름 
+-- TB_CATEGORY
+-- 컬럼
+-- NAME, VARCHAR2(10)
+-- USE_YN, CHAR(1), 기본값은 Y 가 들어가도록
+
+CREATE TABLE TB_CATEGORY (
+    NAME    VARCHAR2(10),
+    USE_YN  CHAR(1) DEFAULT ('Y')
+);
+
+SELECT * FROM TB_CATEGORY;
+
+-- 2. 과목 구분을 저장할 테이블을 만들려고 한다. 다음과 같은 테이블을 작성하시오.
+-- 테이블 이름 
+-- TB_CLASS_TYPE
+-- 컬럼
+-- NO, VARCHAR2(5), PRIMARY KEY
+-- NAME, VARCHAR2(10)
+
+CREATE TABLE TB_CLASS_TYPE (
+    NO      VARCHAR2(5) PRIMARY KEY ,
+    NAME  VARCHAR2(10)
+);
+
+-- 3. TB_CATEGORY  테이블의 NAME 컬럼에 PRIMARY KEY 를 생성하시오.
+-- (KEY 이름을 생성하지 않아도 무방함. 만일 KEY 이를 지정하고자 한다면 이름은 본인이 
+-- 알아서 적당한 이름을 사용한다.)
+ALTER TABLE TB_CATEGORY ADD CONSTRAINT PK PRIMARY KEY (NAME);
+
+--  TB_CLASS_TYPE 테이블의 NAME 컬럼에 NULL 값이 들어가지 않도록 속성을 변경하시오.
+ALTER TABLE  TB_CLASS_TYPE MODIFY NAME NOT NULL;
+
+
+
+
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------
+
+
+
+--1. 과목유형 테이블(TB_CLASS_TYPE) 에 아래와 같은 데이터를 입력하시오.
+INSERT INTO TB_CLASS_TYPE VALUES(01, '전공필수');
+INSERT INTO TB_CLASS_TYPE VALUES(02, '전공선택');
+INSERT INTO TB_CLASS_TYPE VALUES(03, '교양필수');
+INSERT INTO TB_CLASS_TYPE VALUES(04, '교양선택');
+INSERT INTO TB_CLASS_TYPE VALUES(05, '논문지도');
+
+SELECT * FROM TB_CATEGORY;
+
+ALTER TABLE TB_CLASS_TYPE ;
+
+INSERT INTO TB_CATEGORY VALUES('전공필수',DEFAULT);
+INSERT INTO TB_CATEGORY VALUES('전공선택',DEFAULT);
+INSERT INTO TB_CATEGORY VALUES('교양필수',DEFAULT);
+INSERT INTO TB_CATEGORY VALUES('교양선택',DEFAULT);
+INSERT INTO TB_CATEGORY VALUES('논문지도',DEFAULT);
+
+
+
+---------------------------------------------------------------------------------------------------------
+
+
+-- 문제 ..... ..... ..... . . . .  ..... . .. . . .
+
+--  현재 재직중인 직원들중에서 부서가 '해외영업 2부'인 직원들 의 평균 총수령액 보다 적게 받는 직원들중
+-- 입사한 달이 4월인 사원의 사번, 이름 구하시오
+--해외영업2부와 직원들 제외
+
+
+SELECT EMP_ID, EMP_NAME
+FROM EMPLOYEE
+WHERE  (SALARY*12) + (SALARY*12*NVL(BONUS,0) ) <  (
+                SELECT AVG( (SALARY*12) + (SALARY*12*NVL(BONUS,0) ) )
+                FROM EMPLOYEE
+                JOIN DEPARTMENT ON (DEPT_CODE = DEPT_ID)
+                JOIN LOCATION ON (LOCATION_ID = LOCAL_CODE)
+                WHERE NATIONAL_CODE = 'CH' 
+                ) AND DEPT_CODE <> (
+                SELECT DISTINCT(DEPT_CODE)
+                FROM EMPLOYEE
+                JOIN DEPARTMENT ON (DEPT_CODE = DEPT_ID)
+                JOIN LOCATION ON (LOCATION_ID = LOCAL_CODE)
+                WHERE NATIONAL_CODE = 'CH' 
+                    
+                )
+AND ENT_DATE IS NULL
+AND SUBSTR(HIRE_DATE,4,2)  = '04';
+                
+               
+                
+
+
+
+
+
+
+
+

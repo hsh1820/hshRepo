@@ -1,0 +1,25 @@
+package model.vo;
+
+import java.sql.Date;
+
+public class EMP {
+	/*	VO(Value Object) == DTO(Data Transfer Object)
+	 * 	== DO(Domain Object) == Entity(DB)(클래스의 속성들)
+	 * 	== ROW == Record 
+	 * --> DB 테이블의 한 행의 정보가 기록되는 저장용 객체
+	 * 
+	 * VO 를 만들 때 반드시 적용해야할 것
+	 *   1. 반드시 캡슐화를 적용 -> 모든 필드에 private 접근제한자를 사용
+	 *   2. 기본 생성자, 모든 매개변수가 있는 생성자 작성
+	 *   3. 모든 필드에 대하여 getter / setter 작성
+	 * 
+	 * */
+	// java에서는 _로 단어구분 사용 하지 않음
+	private int empNo; // 사번
+	private String eName; // 사원명
+	private String job; // 직책
+	private int mgr ; // 직속상사(manager)
+	private Date hireDate; // 입사일(java.sql.Date)
+	
+	
+}

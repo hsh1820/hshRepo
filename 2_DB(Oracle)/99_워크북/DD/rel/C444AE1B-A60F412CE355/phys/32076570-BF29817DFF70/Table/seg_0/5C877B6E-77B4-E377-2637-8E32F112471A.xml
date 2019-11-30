@@ -1,0 +1,127 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="EMPLOYEE" directorySegmentName="seg_0" id="5C877B6E-77B4-E377-2637-8E32F112471A">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-21 00:37:09 UTC</createdTime>
+<ownerDesignName>DD</ownerDesignName>
+<schemaObject>D4323D20-0EDF-8644-46C7-4027E823D606</schemaObject>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<segment>CFE55363-3A73-4292-007F-92A4208D2341</segment>
+<tableSpace>1B70C97F-0BBD-AEAF-CF11-5D7DA6590D72</tableSpace>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="SAL_LEVEL" id="11FE5A41-CF0D-62EA-F17E-A552B5675E3B">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-21 00:37:09 UTC</createdTime>
+<ownerDesignName>DD</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="PHONE" id="13DE9DD8-8C21-3892-9B10-27B857EE1FEA">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-21 00:37:09 UTC</createdTime>
+<ownerDesignName>DD</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="EMP_NO" id="142845CA-28D5-94EF-BC99-DF5994B0C9A7">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-21 00:37:09 UTC</createdTime>
+<ownerDesignName>DD</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="EMP_ID" id="4F6F5CF4-2879-0D93-50ED-7050EDE3FE7B">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-21 00:37:09 UTC</createdTime>
+<ownerDesignName>DD</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="HIRE_DATE" id="5D566132-4306-FC09-6FD4-CFFA6486495C">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-21 00:37:09 UTC</createdTime>
+<ownerDesignName>DD</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="DEPT_CODE" id="7B2F8976-5D47-0531-4CD6-46567CC83DD3">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-21 00:37:09 UTC</createdTime>
+<ownerDesignName>DD</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="EMP_NAME" id="8B2AA6AD-9656-300B-8F4D-77F9B93B13A4">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-21 00:37:09 UTC</createdTime>
+<ownerDesignName>DD</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="BONUS" id="950763B2-0DE1-8B12-24CA-B1E067C5E3F8">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-21 00:37:09 UTC</createdTime>
+<ownerDesignName>DD</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="EMAIL" id="BBC57EF4-2C74-684F-D7F0-5AD822A56119">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-21 00:37:09 UTC</createdTime>
+<ownerDesignName>DD</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ENT_YN" id="C15247E5-B338-FB63-9C82-7CF9C9695420">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-21 00:37:09 UTC</createdTime>
+<ownerDesignName>DD</ownerDesignName>
+<defaultValue>&apos;N&apos;</defaultValue>
+</ColumnProxy>
+<ColumnProxy name="MANAGER_ID" id="C171324D-9194-C37C-0C91-DF21E578E91A">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-21 00:37:09 UTC</createdTime>
+<ownerDesignName>DD</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="JOB_CODE" id="E74B345B-6D7A-F3F0-AAD0-1DD7A33DDA40">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-21 00:37:09 UTC</createdTime>
+<ownerDesignName>DD</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="SALARY" id="ECF11912-6168-1148-94EE-47F9190BB7BD">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-21 00:37:09 UTC</createdTime>
+<ownerDesignName>DD</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="ENT_DATE" id="F3D80B95-E3B2-976A-3A8B-A3ED1956AE6D">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-21 00:37:09 UTC</createdTime>
+<ownerDesignName>DD</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="엔터티1_PK" id="4F429552-4A8E-1918-8381-D72704E08527">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-21 00:37:09 UTC</createdTime>
+<ownerDesignName>DD</ownerDesignName>
+<schemaObject>D4323D20-0EDF-8644-46C7-4027E823D606</schemaObject>
+<segment>E2A432CD-1352-574B-962A-5C77A7FB55DD</segment>
+<tableSpace>1B70C97F-0BBD-AEAF-CF11-5D7DA6590D72</tableSpace>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="SYS_C007157" id="1236ADAF-BBF5-574C-A161-91F216CAE7E6">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-21 00:37:09 UTC</createdTime>
+<ownerDesignName>DD</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="SYS_C007155" id="4FD23B11-EFCC-939B-F4A3-A2F40089DDE6">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-21 00:37:09 UTC</createdTime>
+<ownerDesignName>DD</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="SYS_C007156" id="AC13D665-0619-445F-F180-2B6CAC975B4A">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-21 00:37:09 UTC</createdTime>
+<ownerDesignName>DD</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="EMPLOYEE_PK" id="8C9F32AA-6BF6-8DC4-6003-5AB9C61390B7">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-21 00:37:09 UTC</createdTime>
+<ownerDesignName>DD</ownerDesignName>
+<segment>E2A432CD-1352-574B-962A-5C77A7FB55DD</segment>
+<tableSpace>1B70C97F-0BBD-AEAF-CF11-5D7DA6590D72</tableSpace>
+<existingIndex>4F429552-4A8E-1918-8381-D72704E08527</existingIndex>
+<indexSegment>E2A432CD-1352-574B-962A-5C77A7FB55DD</indexSegment>
+<indexSort>SORTED</indexSort>
+<usingIndex>BY INDEX NAME</usingIndex>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

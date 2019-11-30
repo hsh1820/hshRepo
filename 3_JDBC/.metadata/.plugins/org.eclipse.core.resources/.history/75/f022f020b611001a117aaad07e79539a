@@ -1,0 +1,17 @@
+package model.vo;
+
+public class EMP {
+	/*	VO(Value Object) == DTO(Data Transfer Object)
+	 * 	== DO(Domain Object) == Entity(DB)(클래스의 속성들)
+	 * 	== ROW == Record 
+	 * --> DB 테이블의 한 행의 정보가 기록되는 저장용 객체
+	 * 
+	 * VO 를 만들 때 반드시 적용해야할 것
+	 *   1. 반드시 캡슐화를 적용 -> 모든 필드에 private 접근제한자를 사용
+	 *   2. 기본 생성자, 모든 매개변수가 있는 생성자 작성
+	 *   
+	 * 
+	 * 
+	 * 
+	 * */
+}

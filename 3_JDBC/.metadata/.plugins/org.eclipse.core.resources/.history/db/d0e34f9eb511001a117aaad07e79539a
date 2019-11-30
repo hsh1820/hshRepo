@@ -1,0 +1,10 @@
+package model.vo;
+
+public class EMP {
+	/*	VO(Value Object) == DTO(Data Transfer Object)
+	 * 	
+	 * 
+	 * 
+	 * 
+	 * */
+}

@@ -1,0 +1,267 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="5C877B6E-77B4-E377-2637-8E32F112471A" schemaObject="D4323D20-0EDF-8644-46C7-4027E823D606" name="EMPLOYEE">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-21 00:37:10 UTC</createdTime>
+<commentInRDBMS>사원</commentInRDBMS>
+<ownerDesignName>DD</ownerDesignName>
+<importedID>4F55D7F6-27E9-FB9B-D95B-508CB680C752</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="EMP_ID" id="4F6F5CF4-2879-0D93-50ED-7050EDE3FE7B">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-21 00:37:10 UTC</createdTime>
+<commentInRDBMS>사원번호</commentInRDBMS>
+<ownerDesignName>DD</ownerDesignName>
+<importedID>B25AC25C-0BED-7A81-8086-1414C15FDEB8</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>3 BYTE</dataTypeSize>
+<ownDataTypeParameters>3 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="EMP_NAME" id="8B2AA6AD-9656-300B-8F4D-77F9B93B13A4">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-21 00:37:10 UTC</createdTime>
+<commentInRDBMS>직원명</commentInRDBMS>
+<ownerDesignName>DD</ownerDesignName>
+<importedID>518AC4F1-1146-56E4-58B7-3FAC75C28360</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="EMP_NO" id="142845CA-28D5-94EF-BC99-DF5994B0C9A7">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-21 00:37:10 UTC</createdTime>
+<commentInRDBMS>주민등록번호</commentInRDBMS>
+<ownerDesignName>DD</ownerDesignName>
+<importedID>1EED23CF-047C-6CC2-B7EF-94BF198A34A5</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>14 BYTE</dataTypeSize>
+<ownDataTypeParameters>14 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="EMAIL" id="BBC57EF4-2C74-684F-D7F0-5AD822A56119">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-21 00:37:10 UTC</createdTime>
+<commentInRDBMS>이메일</commentInRDBMS>
+<ownerDesignName>DD</ownerDesignName>
+<importedID>42A3B4A7-D718-DE55-E9F4-E2F1361893A4</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>25 BYTE</dataTypeSize>
+<ownDataTypeParameters>25 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="PHONE" id="13DE9DD8-8C21-3892-9B10-27B857EE1FEA">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-21 00:37:10 UTC</createdTime>
+<commentInRDBMS>전화번호</commentInRDBMS>
+<ownerDesignName>DD</ownerDesignName>
+<importedID>C319A965-FA46-40B2-6807-F5409A16E040</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>12 BYTE</dataTypeSize>
+<ownDataTypeParameters>12 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="DEPT_CODE" id="7B2F8976-5D47-0531-4CD6-46567CC83DD3">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-21 00:37:10 UTC</createdTime>
+<commentInRDBMS>부서코드</commentInRDBMS>
+<ownerDesignName>DD</ownerDesignName>
+<importedID>F0C4FC09-47C3-321A-DBCC-6E3E1E92CB2F</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>2 BYTE</dataTypeSize>
+<ownDataTypeParameters>2 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="0481EE06-4E66-791D-3464-E969D76A4ED0" referredColumn="CE30C0F3-D657-6F66-2212-1B51B0213D2A"/>
+</associations>
+</Column>
+<Column name="JOB_CODE" id="E74B345B-6D7A-F3F0-AAD0-1DD7A33DDA40">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-21 00:37:10 UTC</createdTime>
+<commentInRDBMS>직급코드</commentInRDBMS>
+<ownerDesignName>DD</ownerDesignName>
+<importedID>76C4F203-B223-10F2-98B8-57E3A246CC2E</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>2 BYTE</dataTypeSize>
+<ownDataTypeParameters>2 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="FDF49B45-21E1-1CDF-5C98-638FA81E0C62" referredColumn="965220F2-2C27-CECB-7ED6-DEAED85D83E9"/>
+</associations>
+</Column>
+<Column name="SAL_LEVEL" id="11FE5A41-CF0D-62EA-F17E-A552B5675E3B">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-21 00:37:10 UTC</createdTime>
+<commentInRDBMS>급여등급</commentInRDBMS>
+<ownerDesignName>DD</ownerDesignName>
+<importedID>89F36080-D0AC-0C3E-C527-C29871B347DB</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>2 BYTE</dataTypeSize>
+<ownDataTypeParameters>2 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="2F99AEEB-AC15-C4FB-7B2E-2EA0E0A6FD2C" referredColumn="4C3C9597-D18F-B0C1-8C60-6A1EE427DA09"/>
+</associations>
+</Column>
+<Column name="SALARY" id="ECF11912-6168-1148-94EE-47F9190BB7BD">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-21 00:37:10 UTC</createdTime>
+<commentInRDBMS>급여</commentInRDBMS>
+<ownerDesignName>DD</ownerDesignName>
+<importedID>334C3609-69F4-19FA-45DC-8FEB4FE969E6</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="BONUS" id="950763B2-0DE1-8B12-24CA-B1E067C5E3F8">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-21 00:37:10 UTC</createdTime>
+<commentInRDBMS>보너스율</commentInRDBMS>
+<ownerDesignName>DD</ownerDesignName>
+<importedID>C5617F03-4EFD-1187-5441-D9300FC68850</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MANAGER_ID" id="C171324D-9194-C37C-0C91-DF21E578E91A">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-21 00:37:10 UTC</createdTime>
+<commentInRDBMS>관리자사번</commentInRDBMS>
+<ownerDesignName>DD</ownerDesignName>
+<importedID>4D032979-E998-B967-A38A-1ECEC329B314</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>3 BYTE</dataTypeSize>
+<ownDataTypeParameters>3 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="HIRE_DATE" id="5D566132-4306-FC09-6FD4-CFFA6486495C">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-21 00:37:10 UTC</createdTime>
+<commentInRDBMS>입사일</commentInRDBMS>
+<ownerDesignName>DD</ownerDesignName>
+<importedID>3452A7C0-7E89-BF1D-9D1E-5A826F7D5DB2</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ENT_DATE" id="F3D80B95-E3B2-976A-3A8B-A3ED1956AE6D">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-21 00:37:10 UTC</createdTime>
+<commentInRDBMS>퇴사일</commentInRDBMS>
+<ownerDesignName>DD</ownerDesignName>
+<importedID>2E7EFBAF-32BE-DA54-B9A7-6B1DEECED03F</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<dataTypeSize>7</dataTypeSize>
+<ownDataTypeParameters>7,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="ENT_YN" id="C15247E5-B338-FB63-9C82-7CF9C9695420">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-21 00:37:10 UTC</createdTime>
+<commentInRDBMS>퇴직여부</commentInRDBMS>
+<ownerDesignName>DD</ownerDesignName>
+<importedID>2E1234EA-F0E1-E3CC-CACE-223145C36C01</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<defaultValue>&apos;N&apos;</defaultValue>
+<ownDataTypeParameters>1 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="8C9F32AA-6BF6-8DC4-6003-5AB9C61390B7" name="EMPLOYEE_PK">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-21 00:37:10 UTC</createdTime>
+<ownerDesignName>DD</ownerDesignName>
+<importedID>57B07AA3-3434-F2C3-94AD-053B309C9F19</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4F6F5CF4-2879-0D93-50ED-7050EDE3FE7B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4F429552-4A8E-1918-8381-D72704E08527" schemaObject="D4323D20-0EDF-8644-46C7-4027E823D606" name="엔터티1_PK">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-21 00:37:10 UTC</createdTime>
+<ownerDesignName>DD</ownerDesignName>
+<importedID>2833FE3A-6682-E1CA-B41F-6DE648133C1B</importedID>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4F6F5CF4-2879-0D93-50ED-7050EDE3FE7B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4FD23B11-EFCC-939B-F4A3-A2F40089DDE6" name="SYS_C007155">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-21 00:37:10 UTC</createdTime>
+<ownerDesignName>DD</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7B2F8976-5D47-0531-4CD6-46567CC83DD3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="AC13D665-0619-445F-F180-2B6CAC975B4A" name="SYS_C007156">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-21 00:37:10 UTC</createdTime>
+<ownerDesignName>DD</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E74B345B-6D7A-F3F0-AAD0-1DD7A33DDA40"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1236ADAF-BBF5-574C-A161-91F216CAE7E6" name="SYS_C007157">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-21 00:37:10 UTC</createdTime>
+<ownerDesignName>DD</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="11FE5A41-CF0D-62EA-F17E-A552B5675E3B"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

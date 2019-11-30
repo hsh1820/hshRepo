@@ -1,0 +1,128 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B46D73F2-B4DD-AFB6-29AC-5CD0BD93B018" schemaObject="D430A211-06B6-0156-AB71-A5FFB7F4BDA6" name="MEM_PRIMARYKEY">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-20 06:21:35 UTC</createdTime>
+<ownerDesignName>molra</ownerDesignName>
+<importedID>E44F5F8C-C191-8719-310B-75A520ACC889</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="MEM_NO" id="9FC2BA9D-75FD-9059-57A5-E3B35CF96FEE">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-20 06:21:35 UTC</createdTime>
+<ownerDesignName>molra</ownerDesignName>
+<importedID>6C55A6E5-7929-E14C-E819-BA5F00E2A2D3</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MEM_ID" id="72F7DB31-99A9-55BF-276C-F9D901A80A4C">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-20 06:21:35 UTC</createdTime>
+<ownerDesignName>molra</ownerDesignName>
+<importedID>0767FF52-0486-6634-055B-EF745F1E27BA</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MEM_PWD" id="0E9CFF78-55C5-4F77-DCDC-5EB07A91D808">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-20 06:21:35 UTC</createdTime>
+<ownerDesignName>molra</ownerDesignName>
+<importedID>3B7378C5-2021-2A0F-6950-F66E9B4A800F</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MEM_NAME" id="1CEC14CF-685E-6116-AF56-52A2C1A8670D">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-20 06:21:35 UTC</createdTime>
+<ownerDesignName>molra</ownerDesignName>
+<importedID>B3AB1270-4C11-B7CC-C529-D6939260656C</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30 BYTE</dataTypeSize>
+<ownDataTypeParameters>30 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MEM_GENDER" id="A04DDD47-F4EB-067A-516D-A2C23E48D189">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-20 06:21:35 UTC</createdTime>
+<ownerDesignName>molra</ownerDesignName>
+<importedID>BDD7DB9D-B85E-D188-F705-CB4736590D98</importedID>
+<constraintName>SYS_C007085</constraintName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1 BYTE</dataTypeSize>
+<listOfValues>
+<valueDef value="&apos;F&apos;" description=""/>
+<valueDef value="&apos;M&apos;" description=""/>
+</listOfValues>
+<ownDataTypeParameters>1 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MEM_PHONE" id="E7C05D83-9C5B-C14F-CB98-AEB724157B63">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-20 06:21:35 UTC</createdTime>
+<ownerDesignName>molra</ownerDesignName>
+<importedID>3769B585-BD7A-7132-3D0A-F1D49FAC08B9</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20 BYTE</dataTypeSize>
+<ownDataTypeParameters>20 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MEM_EMAIL" id="5DF4560A-4D7B-E99E-E878-D3198054573C">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-20 06:21:35 UTC</createdTime>
+<ownerDesignName>molra</ownerDesignName>
+<importedID>D703FEBE-E343-7C23-76D6-AC0A7AD75A83</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50 BYTE</dataTypeSize>
+<ownDataTypeParameters>50 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="86E006B8-9906-B22F-4BB0-3655E2ACFEBB" schemaObject="D430A211-06B6-0156-AB71-A5FFB7F4BDA6" name="MEM_PRIMARYKEY_PK">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-20 06:21:35 UTC</createdTime>
+<ownerDesignName>molra</ownerDesignName>
+<importedID>810E7DEE-1813-EB4D-F19B-16D5B60546F0</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="9FC2BA9D-75FD-9059-57A5-E3B35CF96FEE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2C0DDB4A-B75E-1B77-5E95-1FB59C7AD5A9" schemaObject="D430A211-06B6-0156-AB71-A5FFB7F4BDA6" name="MEM_PRIMARYKEY_MEM_ID_UN">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-20 06:21:35 UTC</createdTime>
+<ownerDesignName>molra</ownerDesignName>
+<importedID>E1D00973-9F56-21F6-4D29-8A31BDE19273</importedID>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="72F7DB31-99A9-55BF-276C-F9D901A80A4C"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

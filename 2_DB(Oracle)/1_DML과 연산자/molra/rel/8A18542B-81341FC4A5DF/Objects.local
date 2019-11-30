@@ -1,0 +1,5 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<oracle.dbtools.crest.model.design.relational.RelationalDesign>
+   <object objectType="SchemaObject" objectID="D430A211-06B6-0156-AB71-A5FFB7F4BDA6" name="KH" seqName="seg_0" propertyClassName="oracle.dbtools.crest.model.design.relational.SchemaObject" propertyParentId="8A18542B-EA0C-D44D-573F-81341FC4A5DF" propertySourceId="" propertyTargetId=""/>
+   <object objectType="Table" objectID="B46D73F2-B4DD-AFB6-29AC-5CD0BD93B018" name="MEM_PRIMARYKEY" seqName="seg_0" propertyClassName="oracle.dbtools.crest.model.design.relational.Table" propertyParentId="8A18542B-EA0C-D44D-573F-81341FC4A5DF" propertySourceId="" propertyTargetId=""/>
+</oracle.dbtools.crest.model.design.relational.RelationalDesign>

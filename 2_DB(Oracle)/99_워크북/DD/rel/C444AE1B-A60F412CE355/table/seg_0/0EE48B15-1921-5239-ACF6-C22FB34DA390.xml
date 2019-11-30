@@ -1,0 +1,77 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="0EE48B15-1921-5239-ACF6-C22FB34DA390" schemaObject="D4323D20-0EDF-8644-46C7-4027E823D606" name="SAL_GRADE">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-21 00:37:10 UTC</createdTime>
+<commentInRDBMS>급여등급</commentInRDBMS>
+<ownerDesignName>DD</ownerDesignName>
+<importedID>30219FFF-9322-AC9E-23A5-E766ACB846BF</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="SAL_LEVEL" id="4C3C9597-D18F-B0C1-8C60-6A1EE427DA09">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-21 00:37:10 UTC</createdTime>
+<commentInRDBMS>급여등급</commentInRDBMS>
+<ownerDesignName>DD</ownerDesignName>
+<importedID>E69AA65F-1E79-3A5E-87B5-558EAE1FD61A</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>2 BYTE</dataTypeSize>
+<ownDataTypeParameters>2 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MIN_SAL" id="64CD64BA-9DA8-CB92-5BE5-C006512F112E">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-21 00:37:10 UTC</createdTime>
+<commentInRDBMS>최소급여</commentInRDBMS>
+<ownerDesignName>DD</ownerDesignName>
+<importedID>0E15494B-EF37-CB12-62D0-B6999FC9A85F</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="MAX_SAL" id="D53B9FDB-3425-22EC-8A7B-508EEB425F1C">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-21 00:37:10 UTC</createdTime>
+<commentInRDBMS>최대급여</commentInRDBMS>
+<ownerDesignName>DD</ownerDesignName>
+<importedID>2E20E9CB-C874-F7DA-D2F4-5FE0617BFDFF</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="DC094078-B775-1C91-5631-08DE2D6937CA" name="엔터티2_PK">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-21 00:37:10 UTC</createdTime>
+<ownerDesignName>DD</ownerDesignName>
+<importedID>04306D7F-E4D4-4AEB-A8E2-3C54072D5A12</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4C3C9597-D18F-B0C1-8C60-6A1EE427DA09"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9990C1CA-CAD4-AC89-A850-6F2069AED5C9" schemaObject="D4323D20-0EDF-8644-46C7-4027E823D606" name="엔터티2_PK">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-21 00:37:10 UTC</createdTime>
+<ownerDesignName>DD</ownerDesignName>
+<importedID>0DE75D98-D446-6512-1F21-0F167B66F044</importedID>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="4C3C9597-D18F-B0C1-8C60-6A1EE427DA09"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

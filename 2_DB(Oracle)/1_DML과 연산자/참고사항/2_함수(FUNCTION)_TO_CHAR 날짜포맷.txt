@@ -1,0 +1,29 @@
+-- 오늘 날짜에 대햬 년도 4자리, 년도 2자리, 년도 이름으로 출력
+-- 년도에 대한 포맷 문자는 'Y', 'R'이 있음
+SELECT TO_CHAR(SYSDATE, 'YYYY'), TO_CHAR(SYSDATE, 'RRRR'),
+       TO_CHAR(SYSDATE, 'YY'), TO_CHAR(SYSDATE, 'RR'),
+       TO_CHAR(SYSDATE, 'YEAR')
+FROM DUAL;
+-- RR과 YY의 차이
+-- RR은 두자리 년도를 네자리로 바꿀 때
+-- 바꿀 년도가 50미만이면 2000년을 적용, 50 이상이면 1900년을 적용
+
+-- 오늘 날짜에서 월만 출력 처리(MM/MONTH/MON/RM)
+-- RM : 로마 숫자
+SELECT TO_CHAR(SYSDATE, 'MM'),
+       TO_CHAR(SYSDATE, 'MONTH'),
+       TO_CHAR(SYSDATE, 'MON'),
+       TO_CHAR(SYSDATE, 'RM')
+FROM DUAL;
+
+-- 오늘 날짜에서 일만 출력(DDD/DD/D)
+SELECT TO_CHAR(SYSDATE, '"1년기준" DDD "일째"'),
+       TO_CHAR(SYSDATE, '"달 기준" DD "일째"'),
+       TO_CHAR(SYSDATE, '"주 기준" D "일째"')
+FROM DUAL;
+
+-- 오늘 날짜에서 분기와 요일을 출력
+SELECT TO_CHAR(SYSDATE, 'Q "분기"'),
+       TO_CHAR(SYSDATE, 'DAY'),
+       TO_CHAR(SYSDATE, 'DY')
+FROM DUAL;

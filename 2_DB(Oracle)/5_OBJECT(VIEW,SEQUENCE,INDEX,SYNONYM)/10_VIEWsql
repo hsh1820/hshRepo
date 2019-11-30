@@ -1,0 +1,283 @@
+-- VIEW 
+/*
+    - SELECT 쿼리 실행의 결과 화면을 저장한 객체
+    - 논리적은 가상 테이블
+    - 실질적인 데이터를 저장하고 있지 않음
+    - 하지만 테이블을 사용하는 것과 동일하게 사용 가능
+    - VIEW 조회 시 생성할떄 만든 서브쿼리가 재실행되는 거라고 생각하면 쉬움
+    -  VIEW 테이블은 베이스 테이블에 의존적
+    - 원본이 변경되어 뷰도 변경되었다.
+
+     [ 표현식 ]
+     CREATE [ OR REPLACE ] [ FORCE | NOFORCE ] VIEW 뷰이름     
+     AS 서브쿼리
+     [ WITH CHECK OPTION ]
+     [ WITH READ ONLY ];
+     
+     -- CREATE OR REPLACE : 같은이름의 뷰가 있으면 생성 또는 변경
+     
+    
+*/
+
+-- 1. VIEW 생성
+-- 1)모든 사원의 사번, 이름, 부서명, 근무지역 조회
+SELECT EMP_ID, EMP_NAME, DEPT_TITLE, NATIONAL_NAME
+FROM EMPLOYEE
+LEFT JOIN DEPARTMENT ON (DEPT_CODE = DEPT_ID)
+LEFT JOIN LOCATION ON(LOCATION_ID = LOCAL_CODE)
+LEFT JOIN NATIONAL USING(NATIONAL_CODE);
+
+-- 2) 가상의 테이블인 VIEW에 1)의 SELECT 결과를 저장
+    --> VIEW 생성
+CREATE OR REPLACE VIEW V_EMPLOYEE
+AS SELECT EMP_ID, EMP_NAME, DEPT_TITLE, NATIONAL_NAME
+    FROM EMPLOYEE
+    LEFT JOIN DEPARTMENT ON (DEPT_CODE = DEPT_ID)
+    LEFT JOIN LOCATION ON(LOCATION_ID = LOCAL_CODE)
+    LEFT JOIN NATIONAL USING(NATIONAL_CODE);
+--ORA-01031: insufficient privileges
+--01031. 00000 -  "insufficient privileges"
+-- 뷰 생성 권한이 없어서 오류 발생
+
+
+-- KH 계정에 VIEW 생성 권한 부여 
+-- 1> SYS AS SYSDBA 로 접속 변경
+-- 2> KH 계정에 VIEW 생성 권한 부여
+-- 3> 다시 KH 계정으로 접속을 변경하여 VIEW 생성
+
+GRANT CREATE VIEW TO KH;
+
+CREATE OR REPLACE VIEW V_EMPLOYEE
+AS SELECT EMP_ID, EMP_NAME, DEPT_TITLE, NATIONAL_NAME
+    FROM EMPLOYEE
+    LEFT JOIN DEPARTMENT ON (DEPT_CODE = DEPT_ID)
+    LEFT JOIN LOCATION ON(LOCATION_ID = LOCAL_CODE)
+    LEFT JOIN NATIONAL USING(NATIONAL_CODE);
+
+-- 3) 생성한 VIEW 조회
+SELECT * FROM V_EMPLOYEE;
+
+COMMIT;
+
+-- 베이스 테이블의 정보가 변경되면 
+-- 해당 테이블로 인해 만들어진 VIEW 의 데이터도 변경됨
+
+-- 사번이 205번인 사원의 이름을 '정중앙'으로 변경
+UPDATE EMPLOYEE
+SET EMP_NAME = '정중앙'
+WHERE EMP_ID = 205;
+
+SELECT * FROM EMPLOYEE
+WHERE EMP_ID = 205;
+
+-- VIEW 에서 변경확인
+SELECT * FROM V_EMPLOYEE
+WHERE EMP_ID = 205;
+
+-- VIEW 에 사용될 서브쿼리의 SELECT 절에 함수가 사용된 경우
+-- 뷰 생성시 반드시 해당 컬럼에 별칭을 지정해야 함.
+
+-- 모든 사원의 사번, 이름, 직급명, 성별, 근무년수를 뷰로 생성하기
+-- 서브쿼리에서 SELECT 절에 함수가 있으면 별칭 부여해야함 
+
+-- 1) SELECT 절에 각 컬럼별 별칭지정
+CREATE OR REPLACE VIEW V_EMP_JOB
+AS SELECT EMP_ID 사번, EMP_NAME 이름 , JOB_NAME 직급, 
+DECODE(SUBSTR(EMP_NO, 8,1), '1', '남', '2', '여') 성별, 
+EXTRACT(YEAR FROM SYSDATE) - EXTRACT(YEAR FROM HIRE_DATE) 근무년수
+FROM EMPLOYEE
+JOIN JOB USING (JOB_CODE);
+
+-- 2) VIEW 이름 뒤에 () 로 일괄 지정
+CREATE OR REPLACE VIEW V_EMP_JOB2(사번, 이름, 직급명, 성별, 근무년수)
+AS SELECT EMP_ID, EMP_NAME, JOB_NAME, 
+DECODE(SUBSTR(EMP_NO, 8,1), '1', '남', '2', '여'), 
+EXTRACT(YEAR FROM SYSDATE) - EXTRACT(YEAR FROM HIRE_DATE) 
+FROM EMPLOYEE
+JOIN JOB USING (JOB_CODE);
+
+SELECT * FROM V_EMP_JOB;
+SELECT * FROM V_EMP_JOB2;
+
+
+-- 생성된 VIEW를 통해 DML구문사용시 BASETABLE 변화 확인
+--COMMIT;
+
+SELECT * FROM JOB;
+
+CREATE OR REPLACE VIEW V_JOB
+AS SELECT JOB_CODE, JOB_NAME
+    FROM JOB;
+    
+SELECT * FROM V_JOB;
+
+-- VIEW 에다가 INSERT 구문 사용해보기
+INSERT INTO V_JOB VALUES('J8','인턴');
+
+-- VIEW 에 추가된 데이터 확인
+SELECT * FROM V_JOB;
+
+-- 베이스 테이블도 변경되었는지 확인
+SELECT * FROM JOB;
+
+--  VIEW를 이용하여 DML 사용은 가능하지만 
+-- 베이스 테이블도 같이 변경되므로 지양
+
+INSERT INTO V_JOB 
+VALUES('J0', NULL);
+-- VIEW는 베이스 테이블의 컬럼들중 부분적으로 만들어져 있을수 때문에 
+-- VIEW에서 INSERT시 베이스 테이블에 NULL 값이 들어가기때문에 
+-- 무결성 위배가 발생함
+SELECT * FROM JOB;
+
+
+----------------------------------------------------------------------
+
+--  DML명령어로 VIEW 조작이 불가능한 경우
+
+    -- 1. 뷰 정의에 포함되지 않은 컬럼을 조작하는 경우
+    CREATE OR REPLACE VIEW V_JOB3
+    AS SELECT JOB_CODE FROM JOB;
+    
+    -- VIEW에 정의되지 않은 컬럼(JOB_NAME)을 조작해보기
+    INSERT INTO V_JOB3
+    VALUES ('J9','알바');
+    
+    UPDATE V_JOB3
+    SET JOB_NAME = '수습'
+    WHERE JOB_CODE = 'J8';
+    
+    DELETE FROM V_JOB3 WHERE JOB_NAME = '인턴';
+    
+    
+    --2. 뷰에 포함되지 않은 컬럼 중에 베이스가 되는 컬럼이 NOT NULL 제약조건이 지정된 경우
+    CREATE OR REPLACE VIEW V_JOB4
+    AS SELECT JOB_NAME FROM JOB;
+    
+    INSERT INTO V_JOB4 VALUES('알바');
+    -- 베이스테이블인 JOB에 JOB_CODE컬럼은
+    -- PRIMARY KEY 제약조건이 설정되어 있으므로,
+    -- NULL 값이 삽입될 수 없음. ---> 에러발생
+    
+    UPDATE V_JOB4
+    SET JOB_NAME = '수습'
+    WHERE JOB_NAME = '인턴';
+    
+    SELECT * FROM V_JOB4;
+    -- UPDATE의 경우 데이터 값만 수정될 뿐  제약조건을 지키며  테이블 자체에대한 수정은 없기때문에 가능
+    -- DELETE 또한 가능 
+    DELETE FROM V_JOB4
+    WHERE JOB_NAME IS NULL;
+    
+    SELECT * FROM V_JOB4;
+    
+    
+    --3. 산술 표현식으로 정의된 경우
+    
+    CREATE OR REPLACE VIEW V_EMP_SAL
+    AS SELECT EMP_ID, EMP_NAME, SALARY,
+    (SALARY + (SALARY * NVL(BONUS,0))) *12 
+    FROM EMPLOYEE;    
+    
+    INSERT INTO V_EMP_SAL
+    VALUES ( 800, '정진훈', 3000000, 36000000);
+    --SQL 오류: ORA-01733: virtual column not allowed here
+    --01733. 00000 -  "virtual column not allowed here"
+    SELECT * FROM V_EMP_SAL;
+    
+    UPDATE V_EMP_SAL
+    SET 연봉 = 8000000
+    WHERE EMP_ID = 200;
+    --SQL 오류: ORA-01733: virtual column not allowed here
+    --01733. 00000 -  "virtual column not allowed here"
+    
+    -- 실제 베이스테이블에는 연봉이라는 컬럼명이 존재하지 않기때문에 INSERT, UPDATE불가
+    -- 산술표현식이정의된 뷰에는 INSERT, UPDATE 불가
+    
+    -- DELETE는 가능 
+    DELETE FROM V_EMP_SAL
+    WHERE "연봉" = 124800000;
+    
+    SELECT * FROM V_EMP_SAL;
+    SELECT * FROM EMPLOYEE;
+    -- 베이스테이블과 뷰에서 모두 삭제
+    -- DELETE는 행전체를 삭제하기때문에 제약조건에 걸리지 않음 그래서 DELETE가능
+    
+    
+    --4. 그룹함수나 GROUP BY절을 포함한 경우
+    -->그룹함수나 GROUP BY 절 사용하여 뷰 생성시
+    -- 뷰를 통해 조회되는 각 행이 
+    -- 베이스 테이블에 어떤 행의 값인지 알 수 없음.
+    -- 모든 DML(INSERT, UPDATE , DELETE)시 에러 발생
+    SELECT SUM(SALARY)
+    FROM EMPLOYEE
+    GROUP BY DEPT_CODE;
+    
+    CREATE OR REPLACE VIEW V_GROUPDEPT
+    AS SELECT DEPT_CODE, SUM(SALARY) 합계, AVG(SALARY) 평균
+    FROM EMPLOYEE
+    GROUP BY DEPT_CODE;
+    INSERT INTO V_GROUPDEPT VALUES('10' ,6000000, 4000000);
+    DELETE FROM V_GROUPDEPT WHERE DEPT_CODE ='D1';
+    
+    
+        
+    --5. DISTINCT를 포함한 경우
+    CREATE OR REPLACE VIEW V_DT_EMP
+    AS SELECT DISTINCT JOB_CODE
+    FROM EMPLOYEE;
+    INSERT INTO V_DT_EMP VALUES('J9');
+    DELETE FROM V_DT_EMP WHERE JOB_CODE = 'J1';
+    
+    
+    --6. JOIN을 이용해 여러 테이블을 연결한 경우
+    CREATE OR REPLACE VIEW V_JOINEMP
+    AS SELECT EMP_ID, EMP_NAME, DEPT_TITLE
+    FROM EMPLOYEE
+    JOIN DEPARTMENT ON (DEPT_CODE = DEPT_ID);
+    
+    -- INESRT / UPDATE 시 에러 발생
+    INSERT INTO V_JOINEMP
+    VALUES(888, '조세오', '인사관리부');
+    -- EMPLOYEE 테이블의 PK 제약조건은 만족하나 DEPARTMENT 테이블의 PK제약조건은 위배한 상태
+    -- JOIN하는 테이블의 PK 제약조건을 위배되기때문에 JOIN을이용해서 VIEW를 조작할 수 없음.
+    
+    
+    -- VIEW에서 DML을 사용할 수 없는 조건이 많아서 VIEW에서는 DML 잘 사용하지 않음
+    
+    -- * VIEW  구조 확인하기
+    
+    -- 사용자 정의 뷰를 확인 할 수 있는 데이터 딕셔너리(USER_VIEWS)
+    SELECT * FROM USER_VIEWS;
+    -- USER_VIEWS 테이블 안에 있는 VIEW_NAME 과 TEXT (서브쿼리문이 저장되어 있음)이 실행되는 것
+    -- 뷰란 :     서브쿼리에 이름을 붙여놓은 형태 
+    
+    ----------------------------------------------------------------------
+    
+    -- VIEW 옵션
+    -- 1) OR REPLACE 
+    -- 기존에 동일한 이름을 가진 뷰가 존재하는 경우 
+    -- 해당 뷰를 덮어쓰고 없는경우 새로운 뷰를 생성함
+    
+    CREATE VIEW V_EMP2
+    AS SELECT EMP_NO, EMP_NAME 
+    FROM EMPLOYEE;
+    
+    SELECT * FROM V_EMP2;
+    
+    CREATE OR REPLACE VIEW V_EMP2
+    AS SELECT EMP_ID, EMP_NAME
+    FROM EMPLOYEE;
+    -- VIEW는 DROP / DELETE 필요 없이 OR REPLACE 옵션으로 덮어쓰기 가능
+    
+    SELECT * FROM V_EMP2;
+    
+    -- 4) WITH READ ONLY  : 뷰에 대한 조회만 가능 (DML 불가)
+    CREATE OR REPLACE VIEW V_DEPT
+    AS SELECT * FROM DEPARTMENT 
+    WITH READ ONLY;
+    
+    SELECT * FROM V_DEPT;
+    
+    DELETE FROM V_DEPT;
+    

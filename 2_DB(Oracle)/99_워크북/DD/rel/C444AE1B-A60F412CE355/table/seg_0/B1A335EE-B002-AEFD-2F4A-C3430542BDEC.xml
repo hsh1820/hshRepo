@@ -1,0 +1,65 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="B1A335EE-B002-AEFD-2F4A-C3430542BDEC" schemaObject="D4323D20-0EDF-8644-46C7-4027E823D606" name="NATIONAL">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-21 00:39:56 UTC</createdTime>
+<commentInRDBMS>국가</commentInRDBMS>
+<ownerDesignName>DD</ownerDesignName>
+<importedID>ECBD47CB-1137-EA20-489B-1D18CBD3BD0F</importedID>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="NATIONAL_CODE" id="B98813AF-4FE9-16F0-4935-236E9513EC94">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-21 00:39:56 UTC</createdTime>
+<commentInRDBMS>국가코드</commentInRDBMS>
+<ownerDesignName>DD</ownerDesignName>
+<importedID>9F05F951-5E4B-7F8B-D0EC-A8760F82C450</importedID>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>2 BYTE</dataTypeSize>
+<ownDataTypeParameters>2 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="NATIONAL_NAME" id="8BBDF997-B2A5-A14C-A69D-EB46E5067E8D">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-21 00:39:56 UTC</createdTime>
+<commentInRDBMS>국가명</commentInRDBMS>
+<ownerDesignName>DD</ownerDesignName>
+<importedID>D4B1244D-BD0A-A3A5-6665-BE37393B08CE</importedID>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>35 BYTE</dataTypeSize>
+<ownDataTypeParameters>35 BYTE,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="741E2171-3AC8-6AB2-175E-B2C7AE0EAB14" name="NATIONAL_PK">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-21 00:39:56 UTC</createdTime>
+<ownerDesignName>DD</ownerDesignName>
+<importedID>AA60D84B-ABA2-CA19-3F06-4FC649F3E674</importedID>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B98813AF-4FE9-16F0-4935-236E9513EC94"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E6A1D0BF-E5C2-9AEE-DFD7-773D30CEC84E" schemaObject="D4323D20-0EDF-8644-46C7-4027E823D606" name="엔터티1_PK4">
+<createdBy>user1</createdBy>
+<createdTime>2019-11-21 00:39:56 UTC</createdTime>
+<ownerDesignName>DD</ownerDesignName>
+<importedID>5389A2E4-AD71-D0B8-531D-DF1DE59BDBBF</importedID>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B98813AF-4FE9-16F0-4935-236E9513EC94"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
