@@ -430,7 +430,7 @@ public class EmpDAO {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			
 			// 5_11. DB 연결 작업
-			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","SCOTT", "TIGER");
+			conn = DriverManager.getConnection("jdbc:oracle:thin:@192.168.10.68:1521:xe","SCOTT", "TIGER");
 			
 			// 5_12. 사원 정보 삭제를 위한 SQL 구문 작성
 			String query = "delete from emp where empno = ? ";
