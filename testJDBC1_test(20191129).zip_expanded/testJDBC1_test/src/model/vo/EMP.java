@@ -26,17 +26,22 @@ public class EMP {
 	
 	public EMP() {} // 기본 생성자
 	
-	public EMP(int empNo, String eName, String job, int mgr, int sal, int comm, int deptNo) {
+	public EMP(String job, int mgr, int sal, int comm, int deptNo) {
 		super();
-		this.empNo = empNo;
-		this.eName = eName;
 		this.job = job;
 		this.mgr = mgr;
 		this.sal = sal;
 		this.comm = comm;
 		this.deptNo = deptNo;
 	}
-
+	
+	public EMP(int empNo, String eName, String job, int mgr, int sal, int comm, int deptNo) {
+		this(job, mgr, sal, comm, deptNo);
+		this.empNo = empNo;
+		this.eName = eName;
+		
+	}
+	
 	// 모든 매개변수 있는 생성자
 	public EMP(int empNo, String eName, String job, int mgr, Date hireDate, int sal, int comm, int deptNo) {
 		this(empNo, eName, job, mgr, sal, comm, deptNo); 

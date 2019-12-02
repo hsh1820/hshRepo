@@ -41,7 +41,7 @@ public class EmpView {
 			case 1: controller.selectAll(); break;
 			case 2: controller.selectEmp(); break;
 			case 3: controller.insertEmp(); break;
-			case 4: break;
+			case 4: controller.updateEmp(); break;
 			case 5: break;
 			case 6: controller.salRange(); break;
 			case 0: System.out.println("프로그램을 종료합니다."); break;
@@ -165,7 +165,28 @@ public class EmpView {
 		System.out.println("서비스 요청 성공 : "+ msg);
 	}
 
-
+	// 4_4. 사원 정보 수정 내용 입력용 View
+	public EMP updateEmp() {
+System.out.println("[사원 정보 수정]");
+		
+		System.out.print("직책 : ");
+		String job = sc.nextLine();
+		
+		System.out.print("직속 상사 번호 : ");
+		int mgr = sc.nextInt();
+		
+		System.out.print("급여 : ");
+		int sal = sc.nextInt();
+		
+		System.out.print("커미션 : ");
+		int comm = sc.nextInt();
+		
+		System.out.print("부서 번호 : ");
+		int deptNo = sc.nextInt();		
+		sc.nextLine(); // 개행문자 제거
+		
+		return new EMP(job, mgr, sal, comm, deptNo) ;
+	}
 
 
 }

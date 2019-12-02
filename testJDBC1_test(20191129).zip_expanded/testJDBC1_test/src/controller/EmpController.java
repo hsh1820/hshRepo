@@ -154,6 +154,41 @@ public class EmpController {
 		
 	}
 	
+	// 4. 사번으로 사원 정보 수정
+	public void updateEmp() {
+		// controller에 메소드 생성되면 DB필요시 empDAO 객체 생성
+		// 4_1. EmpDAO 객체 생성
+		EmpDAO empDAO = new EmpDAO();
+		
+		// 4_2. 사번을 입력받는 View 호출
+		int empNo = view.selectEmpNo();
+		
+		// 4_3. 사원 정보 수정 내용을 입력할 View 작성
+		// -> EmpView.updateEmp() 메소드 작성
+		
+		// 4_5. 사원 정보 수정 내용 입력 View 호출 후
+		// 		반환 받은 내용 저장
+		EMP emp = view.updateEmp();
+		
+		// 4_6. 입력받은 사번을 emp 객체에 저장
+		emp.setEmpNo(empNo);
+		
+		// 4_7. 입력받은 사번과 일치하는 사원의 정보를
+		// 		DB에서 찾아 수정한 후 결과를 반환하는 메소드
+		// 		EmpDAO.updateEmp(emp) 메소드 작성
+		
+		// 4_18. DB 수정 결과를 반환 받아 저장
+		int result = empDAO.updateEmp(emp);
+		
+		// 4_19. 수정 결과에 따른 View 연결 처리
+		if(result > 0) {
+			view.displaySuccess(result + "개의 행이 수정되었습니다.");
+			
+		}else {
+			view.displayError("데이터 수정 과정 중 오류 발생");
+		}
+	}
+	
 	
 
 	
