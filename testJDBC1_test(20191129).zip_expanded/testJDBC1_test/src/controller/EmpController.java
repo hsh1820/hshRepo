@@ -118,7 +118,7 @@ public class EmpController {
 			view.selectAll(empList);
 		} else { 
 			view.displayError("조회 결과가 없습니다.");
-		}
+		}	
 	}
 	
 	
