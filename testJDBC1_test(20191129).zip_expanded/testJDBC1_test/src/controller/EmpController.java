@@ -1,6 +1,5 @@
 package controller;
 
-import java.sql.Connection;
 import java.util.ArrayList;
 
 import model.dao.EmpDAO;
