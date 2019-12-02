@@ -137,6 +137,19 @@ public class EmpController {
 		// 3_5. 입력받은 사원 정보를 DB에 삽입하기 위한 
 		// EmpDAO.insertEmp(emp) 메소드 작성
 		
+		// 3_15. 사원 정보 삽입 후 결과를 반환
+		int result = empDao.insertEmp(emp);
+		
+		// 3_16. 삽입 결과에 따른 View 연결 처리
+		if(result > 0) { // 삽입 성공 시 
+			// 3_17. DML 성공 시 메세지를 출력할 View 작성
+			// -> EmpView.displaySuccess() 메소드 작성
+			
+			// 3_19. 성공 메세지 출력을 위한 View 호출
+			view.displaySuccess(result + "개의 행이 삽입되었습니다.");
+		}else { // 삽입 실패시 
+			view.displayError("데이터 삽입과정 중 오류 발생");
+		}
 		
 		
 	}
