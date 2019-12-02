@@ -27,7 +27,10 @@ public class EMP {
 	public EMP() {} // 기본 생성자
 	
 	public EMP(String job, int mgr, int sal, int comm, int deptNo) {
-		super();
+//		super();
+		// super() : object의 생성자를 가져오는 것 .
+		// 생략 가능 하며 , 생략시 JVM에서 자동으로 생성하여 Ojbect의 생성자를 가져와서 어떤 클래스라도 
+		// 객체로 생성 가능하다.
 		this.job = job;
 		this.mgr = mgr;
 		this.sal = sal;
