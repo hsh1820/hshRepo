@@ -122,7 +122,24 @@ public class EmpController {
 	}
 	
 	
-	
+	// 3. 새로운 사원 정보 추가
+	public void insertEmp() {
+		
+		// 3_1. EmpDAO 객체 생성
+		EmpDAO empDao = new EmpDAO();
+		
+		// 3_2. 사원 정보를 입력받을 수 있는 View 작성
+		// -> EmpView.insertEmp() 메소드 작성
+		
+		// 3_4. 사원 정보 입력 View를 호출하고 반환값 저장
+		EMP emp = view.insertEmp(); // 주소에대한 얕은 복사
+		
+		// 3_5. 입력받은 사원 정보를 DB에 삽입하기 위한 
+		// EmpDAO.insertEmp(emp) 메소드 작성
+		
+		
+		
+	}
 	
 	
 

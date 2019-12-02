@@ -25,18 +25,25 @@ public class EMP {
 	private int deptNo; // 부서번호
 	
 	public EMP() {} // 기본 생성자
-
-	// 모든 매개변수 있는 생성자
-	public EMP(int empNo, String eName, String job, int mgr, Date hireDate, int sal, int comm, int deptNo) {
+	
+	public EMP(int empNo, String eName, String job, int mgr, int sal, int comm, int deptNo) {
 		super();
 		this.empNo = empNo;
 		this.eName = eName;
 		this.job = job;
 		this.mgr = mgr;
-		this.hireDate = hireDate;
 		this.sal = sal;
 		this.comm = comm;
 		this.deptNo = deptNo;
+	}
+
+	// 모든 매개변수 있는 생성자
+	public EMP(int empNo, String eName, String job, int mgr, Date hireDate, int sal, int comm, int deptNo) {
+		this(empNo, eName, job, mgr, sal, comm, deptNo); 
+		// 생성자는 객체가 생성될 때(new) 생성되는 것이기때문에 
+		// this()(자기 자신을 참조하는 생성자)로 7개짜리 생성자 대치 가능 
+		this.hireDate = hireDate;
+
 	}
 
 	public int getEmpNo() {
