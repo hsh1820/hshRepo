@@ -417,8 +417,57 @@ public class EmpDAO {
 		return result;
 	}
 	
-	
-	
+	// 5_8. 전달받은 사번과 일치하는 사원 정보 삭제 메소드 
+	public int deleteEmp(int empNo) {
+		
+		// 5_9. JDBC 드라이버 등록, DB 연결 / 수행, 삭제결과 저장을 위한 변수 선언
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		// 5_10. JDBC 드라이버 호출
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			
+			// 5_11. DB 연결 작업
+			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","SCOTT", "TIGER");
+			
+			// 5_12. 사원 정보 삭제를 위한 SQL 구문 작성
+			String query = "delete from emp where empno = ? ";
+			
+			// 5_13. PreparedStatement 객체 생성 후 
+			// 		 위치 홀더에 값 대입
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, empNo);
+			
+			// 5_14. SQL 수행 후 결과 값 반환 받기
+			result = pstmt.executeUpdate();
+			
+			// 5_15. SQL 수행 결과에 따라 트랜잭션 처리
+			if(result > 0 ) {
+				conn.commit();
+			}else {
+				conn.rollback();
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+			
+		}finally {
+			try {
+				// 5_16. DB 연결 자원 반환
+				pstmt.close();
+				conn.close();
+				
+			}catch(SQLException e) {
+				e.printStackTrace();
+				
+			}
+		}
+		// 5_17. DELETE 결과 반환
+		return result;
+
+	}
 	
 	
 }
