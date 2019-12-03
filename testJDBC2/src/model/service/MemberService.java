@@ -31,6 +31,14 @@ public class MemberService {
 	
 	// 1_6. 새로운 회원 정보 추가용 Service
 	// 매개변수로 Controller 로 부터 데이터를 전달 받음
+	
+	
+	/**
+	 * 새로운 회원 정보 추가용 Service
+	 * @param member : Member
+	 * @return result : int
+	 * @throws Exception 
+	 */
 	public int insertMember(Member member) throws Exception{
 
 		// 1_7. DB 연결을 위한 Connection객체 생성 구문의

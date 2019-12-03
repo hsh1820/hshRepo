@@ -31,6 +31,8 @@ public class MemberDAO {
 	
 	// 1_12. 기본 생성자 내부에 
 	//		 query.properties 파일을 동적으로 읽어들일 구문 작성
+	
+	
 	public MemberDAO() throws Exception {
 		// 발생하는 예외를 Controller로 전달하여 예외처리 할 수 있도록
 		// throws Exception 작성
@@ -43,6 +45,15 @@ public class MemberDAO {
 	
 	// 1_14. 새로운 회원 정보 추가 DAO
 	// Service에서 생성한 Connection 객체를 전달 받을 예정
+	
+	
+	/**
+	 * 새로운 회원 정보 추가용 DAO
+	 * @param conn : Connection
+	 * @param member : Member
+	 * @return result : int
+	 * @throws Exception
+	 */
 	public int insertMember(Connection conn, Member member) throws Exception{
 		
 		// SQL 수행, DB 자원 반환

@@ -17,6 +17,12 @@ public class MemberController {
 	// 1. 새로운 회원 정보 추가
 	// 입력받은 회원 정보를 DB로 전달한 후 결과에 따라
 	// 알맞은 View에 연결처리하는 메소드
+	
+	
+	/**
+	 * 새로운 회원 정보 추가 Controller
+	 * 
+	 */
 	public void insertMember() {
 		
 		// 1_1. 새로운 회원 정보를 입력받기 위한 서브메뉴
