@@ -40,7 +40,7 @@ public class MemberView {
 			sc.nextLine(); // Scanner 버퍼에 남아있는 개행 문자 제거
 			
 			switch(sel) {
-			case 1 : break;
+			case 1 : mController.insertMember(); break;
 			case 2 : break;
 			case 3 : break;
 			case 4 : break;
@@ -88,4 +88,21 @@ public class MemberView {
 		
 		return member;
 	}
+	
+	// 1_29. DML 성공 메세지 출력용 View
+	public void displaySuccess(String msg) {
+		System.out.println("서비스 요청 성공 : " + msg);
+	}
+	
+	// 1_32. 실패 메세지 출력용 View
+	public void displayFail(String msg) {
+		System.out.println("서비스 요청 실패 : " + msg);
+	}
+	
+	// 1_35. 에러 메세지 출력용 View
+	public void displayError(String msg, Exception e) {
+		System.out.println("서비스 요청 중 오류 발생 : " + msg );
+		e.printStackTrace();
+	}
+	
 }

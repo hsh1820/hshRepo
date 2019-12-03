@@ -1325,3 +1325,264 @@ user global configuration and to define the default location to store repositori
 not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
 EGit might behave differently since they see different configuration options.
 This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:18:49.064
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:18:49.202
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:18:49.342
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:18:49.348
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:18:49.349
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:18:49.406
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:18:49.407
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:18:49.410
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:18:49.411
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:18:49.412
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:18:49.572
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:18:49.573
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:18:49.599
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:18:49.602
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:18:49.603
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:18:49.629
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:18:49.631
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:18:49.633
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:18:49.658
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:18:49.660
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:18:49.661
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:18:49.693
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:19:02.545
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:19:02.548
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:19:02.556
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:19:02.557
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:19:02.558
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:19:02.559
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:19:02.559
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:19:02.573
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:19:02.573
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:19:02.574
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:19:02.575
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:19:02.579
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:19:02.580
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 150 2019-12-03 14:19:02.585
+!MESSAGE Unable to locate executable for jre1.8.0_212
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:19:12.410
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:19:19.370
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:19:32.920
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:19:32.921
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:19:32.921
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:19:32.921
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:19:32.922
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:19:32.923
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:19:32.923
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:19:32.925
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:19:32.926
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:19:32.926
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:19:32.927
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:19:32.928
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:19:32.928
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 150 2019-12-03 14:19:32.931
+!MESSAGE Unable to locate executable for jre1.8.0_212
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:19:51.380
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:19:56.148
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:20:20.626
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:20:50.326
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:21:32.713
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:25:28.163
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:25:35.491
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:25:41.751
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:25:50.685
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:25:54.729
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:25:55.962
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:25:58.616
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:26:01.053
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:26:04.729
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:27:47.210
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:27:53.346
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:29:01.860
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:29:06.358
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:29:09.820
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:29:11.396
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:29:23.275
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:29:23.275
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:29:23.276
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:29:23.276
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:29:23.277
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:29:23.278
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:29:23.278
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:29:23.281
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:29:23.282
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:29:23.283
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:29:23.284
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:29:23.285
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:29:23.286
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.
+
+!ENTRY org.eclipse.jdt.launching 4 150 2019-12-03 14:29:23.287
+!MESSAGE Unable to locate executable for jre1.8.0_212
+
+!ENTRY org.eclipse.jdt.launching 4 4 2019-12-03 14:29:53.114
+!MESSAGE Could not determine Java version for location C:\Program Files\Java\jre1.8.0_212.

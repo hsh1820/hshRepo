@@ -1,6 +1,13 @@
 package common;
 
+import java.io.FileReader;
+import java.io.IOException;
 import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.Properties;
 
 public class JDBCTemplate {
 	/* 기존에는 DB 처리 작업 시 (쿼리문을 하나 보낼때마다 실행하는 것) 마다
@@ -35,9 +42,126 @@ public class JDBCTemplate {
 		// 않았을 때
 		// -> Connection 객체 생성
 		if(conn == null) {
+			/* 이전 프로젝트에서 Connection 생성 과정
+			 * - JDBC 드라이버 로드
+			 * - DB 연결을 위한 정보(url, id, pwd) 직접 작성
+			 * 이러한 내용들을 직접 작성함. (정적 코딩)
+			 * -- > 추후 DB정보가 변경되는 경우
+			 * 		코드 자체를 수정해서 다시 컴파일, 배포해야함.
+			 * 		--> 유지보수 불편
+			 * 
+			 * 이를 해결하기 위해 Properties 파일 사용.
+			 * 프로그램 실행 시 동적으로 Properties 파일에서
+			 * DB 연결정보를 읽어오도록 코딩. (동적 코딩)
+			 * 
+			 * -> driver.Properties 파일 작성
+			 * 
+			 * */
 			
+			// 외부에서 DB 연결 정보 읽어올 Properties 객체 생성
+			try {
+				Properties prop = new Properties();
+				
+				// driver.properties 파일에서 정보를 읽어옴
+				prop.load(new FileReader("driver.properties"));
+				// -> 파일을 읽어오는 과정에서 IOException 발생 가능성이 있음
+				
+				// driver.properties에서 읽어들인 정보를 이용해 
+				// DB와 연결할 Connection객체를 생성
+				
+				// jdbc 드라이버 로드
+				try {
+					Class.forName(prop.getProperty("driver"));
+					// classnotfound Exception 발생 가능성 있음
+					
+					// Connection 객체 생성
+					conn = DriverManager.getConnection(
+							prop.getProperty("url"),
+							prop.getProperty("user"),
+							prop.getProperty("password"));
+					
+					// 명시적 Auto Commit 비활성화
+					conn.setAutoCommit(false);
+					
+				}catch(Exception e) {
+					e.printStackTrace();
+				}
+			}catch(IOException e) {
+				e.printStackTrace();
+			}
 		}
 		return conn;
+	}
+	
+	// DB 연결 관련 자원 반환 메소드 close() 작성
+	public static void close(Statement stmt) {
+		 // PreparedStatement는 Statement 의 자식
+      	 // -> 상속 관계 -> 다형성 적용 -> 매개변수로 부모 타입 사용 가능
+		 // --> 즉, 어떤 statement 객체를 사용 하더라도 template에서 한번에 
+		 // 자원 처리가능
+		
+		try {
+			if (stmt != null && !stmt.isClosed()) {
+				stmt.close();
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	
+	public static void close(ResultSet rset) {
+		 // PreparedStatement는 Statement 의 자식
+     	 // -> 상속 관계 -> 다형성 적용 -> 매개변수로 부모 타입 사용 가능
+		 // --> 즉, 어떤 statement 객체를 사용 하더라도 template에서 한번에 
+		 // 자원 처리가능
+		
+		try {
+			if ( rset != null && !rset.isClosed()) {
+				rset.close();
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void close(Connection conn) {
+		 // PreparedStatement는 Statement 의 자식
+    	 // -> 상속 관계 -> 다형성 적용 -> 매개변수로 부모 타입 사용 가능
+		 // --> 즉, 어떤 statement 객체를 사용 하더라도 template에서 한번에 
+		 // 자원 처리가능
+		
+		// 바꾸고싶은 변수명에 Alt + Shift + R
+		try {
+			if ( conn != null && !conn.isClosed()) {
+				conn.close();
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	// 처리 결과에 따른 트랜잭션 처리도 공통적인 업무임
+	// --> static으로 선언하여 코드길이 감소와 재사용성의 증가
+	public static void commit(Connection conn) {
+		try {
+			if(conn != null && !conn.isClosed()) {
+				conn.commit();
+			}
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void rollback(Connection conn) {
+		try {
+			if(conn != null && !conn.isClosed()) {
+				conn.rollback();
+			}
+			
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	
