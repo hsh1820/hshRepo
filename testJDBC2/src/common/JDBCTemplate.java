@@ -82,6 +82,9 @@ public class JDBCTemplate {
 					
 					// 명시적 Auto Commit 비활성화
 					conn.setAutoCommit(false);
+					// 11g xe 버전이 아닌 다른 종류나 버전의 DB에서는 
+					// 기본적으로 AutoCommit이 true로 지정되어있는 DB가 있는데
+					// 이를 방지하기 위해서 setAutoCommit(false) 구문 작성한 것
 					
 				}catch(Exception e) {
 					e.printStackTrace();

@@ -68,6 +68,7 @@ public class MemberController {
 		// 1_37. 메인 메뉴 case 1에 
 		//		 mController.insertMember() 호출 구문 작성
 		
+		
 	}
 	
 }
