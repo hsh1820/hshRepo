@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<classpath>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="src" path="src"/>
-	<classpathentry exported="true" kind="lib" path="C:/dev/3_JDBC/ojdbc6.jar"/>
-	<classpathentry kind="lib" path="C:/Program Files/Java/jre1.8.0_231/bin"/>
-	<classpathentry kind="output" path="bin"/>
-</classpath>
