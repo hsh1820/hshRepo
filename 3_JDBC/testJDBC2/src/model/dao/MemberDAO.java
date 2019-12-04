@@ -1,10 +1,15 @@
 package model.dao;
 
-import static common.JDBCTemplate.*;
+import static common.JDBCTemplate.close;
 
 import java.io.FileReader;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Properties;
 
 import model.vo.Member;
@@ -102,5 +107,60 @@ public class MemberDAO {
 		return result;
 	}
 	
+	// 2_6. 모든 회원 정보 조회용 DAO
+	public List<Member> selectAll(Connection conn) throws Exception{
+		
+		// 2_7. SQL문을 DB에 전달하고
+		//		결과값을 반환받아 저장 할 변수들 선언
+		Statement stmt  = null;
+		ResultSet rset = null;
+		List<Member> mList = null;
+		
+		// 2_8. query.properties 파일에 SQL구문 작성 후 얻어오기
+		String query = prop.getProperty("selectAll");
+		
+		// 2_9. 전달받은 Connection 과 query를 이용하여 DB로 SQL문 전달
+		try {
+			stmt = conn.createStatement();
+			
+			// 2_10. SQL문 수행 후 반환 받은 결과를 rset에 저장
+			rset = stmt.executeQuery(query);
+			
+			// 2_11. 조회 결과를 저장할 ArrayList 객체 생성
+			// list가 null인경우 고려 X
+			mList = new ArrayList<Member>();
+			
+			// 2_12. 조회 결과의 한 행의 값을 임시 저장할 Member 참조 변수 선언
+			Member member = null;
+			
+			// 2_13. rset에 저장된 회원 정보를 한 행씩 읽어들여 mList에 추가
+			while(rset.next()) {
+				String memberId = rset.getString("member_ID");
+				String memberPwd = rset.getString("member_PWD");
+				String memberName = rset.getString("member_NAME");
+				
+				char gender = rset.getString("gender").charAt(0);
+				String email = rset.getString("email");
+				String phone = rset.getString("phone");
+				String address = rset.getString("address");
+				int age = rset.getInt("age");
+				Date enrollDate = rset.getDate("enroll_date");
+				
+				member = new Member(memberId, memberPwd, memberName, gender, email, phone, address, age, enrollDate);
+				
+				mList.add(member);
+			} // while end
+			
+		}finally {
+			// 2_14. 사용한 DB자원 반환
+			close(rset);
+			close(stmt);
+			
+		}
+		
+		// 2_15. 조회 결과를 저장한 mList 반환
+		return mList;
+		
+	}
 	
 }

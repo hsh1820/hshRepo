@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.List;
+
 import model.service.MemberService;
 import model.vo.Member;
 import view.MemberView;
@@ -73,7 +75,44 @@ public class MemberController {
 		}
 		// 1_37. 메인 메뉴 case 1에 
 		//		 mController.insertMember() 호출 구문 작성
+	}
+	
+	// 2. 모든 회원 정보 조회
+	public void selectAll() {
 		
+		// 2_1. MemberService.selectAll() 메소드 작성
+		
+		// 2_18. MemberService.selectAll() 메소드 호출하여 반환값 저장
+		try {
+			List<Member> mList = mService.selectAll();
+			
+			// 2_19. 조회 결과에 따라 보여줄 View 연결 처리
+			if(!mList.isEmpty()) { // 조회 결과가 있을 경우
+				// memberDAO 에서 쿼리문 실행 후 
+				// list를 생성 했기 때문에 
+				// 쿼리 문 실행 중 Exception 발생하면 
+				// memberSerivce 클래스에서 MemberDAO.selectAll() 이 
+				// null 값이 되기때문에 조건문에 mList.isEmpty()사용
+				
+				// 2_20. 모든 회원 정보를 출력할 View
+				//		 MemberView.displayMember(mList) 메소드 작성
+				
+				// 2_22. 회원 정보 출력용 View 호출
+				view.displayMember(mList);
+				
+			}else { // 조회 결과 행의 개수가 0개인 (mList가 비어있는) 경우
+
+				// 2_23. view.displaySuccess() 호출
+				view.displaySuccess("조회 결과가 없습니다.");
+			}
+			
+		}catch(Exception e ) {
+			// 2_24. MemberView.displayError(msg) 호출
+			view.displayError("데이터 조회 과정 중 오류 발생", e);
+		}
+		 
+		// 2_25. MemberView.mainMenu() case 에서 
+		// 		 MemberController.selectAll() 호출
 		
 	}
 	

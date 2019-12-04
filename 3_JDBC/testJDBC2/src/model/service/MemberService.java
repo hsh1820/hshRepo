@@ -4,6 +4,7 @@ package model.service;
 import static common.JDBCTemplate.*; 
 
 import java.sql.Connection;
+import java.util.List;
 
 import model.dao.MemberDAO;
 import model.vo.Member;
@@ -79,6 +80,28 @@ public class MemberService {
 		
 		// 1_25. DB 처리 결과를 Controller로 반환
 		return result;
-
+	}
+	
+	// 2_2. 전체 회원 정보 조회용 Service
+	public List<Member> selectAll() throws Exception{
+		
+		// 2_3. JDBCTemplate 에서 Connection 객체를 얻어옴.
+		Connection conn = getConnection();
+		
+		// 2_4. MemberDAO 객체 생성
+		MemberDAO memberDAO  = new MemberDAO();
+		
+		// 2_5. Connection객체를 전달받아
+		//		모든 회원 정보를 조회하고 반환 할 메소드 
+		//		MemberDAO.selectAll(conn) 작성
+		
+		// 2_16. memberDAO.setlectAll(conn) 호출 후 반환 값 저장
+		List<Member> mList = memberDAO.selectAll(conn);
+		
+		// 2_17. 별도의 트랜잭션 처리가 필요하지 않으므로 
+		//		 바로 Controller 로 반환
+		return mList;
+				
+		
 	}
 }

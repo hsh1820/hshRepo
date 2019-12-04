@@ -1,5 +1,6 @@
 package view;
 
+import java.util.List;
 import java.util.Scanner;
 
 import controller.MemberController;
@@ -41,7 +42,7 @@ public class MemberView {
 			
 			switch(sel) {
 			case 1 : mController.insertMember(); break;
-			case 2 : break;
+			case 2 : mController.selectAll(); break;
 			case 3 : break;
 			case 4 : break;
 			case 5 : break;
@@ -105,4 +106,17 @@ public class MemberView {
 		e.printStackTrace();
 	}
 	
+	// 2_21. 회원 정보 출력용 View
+	public void displayMember(List<Member> mList) {
+		System.out.printf("%-10s %-10s %-5s %-5s %-20s %-15s %-4s %-20s %-15s\n",
+				"ID", "PWD", "NAME", "GENDER", "EMAIL", 
+				"PHONE", "AGE", "ADDRESS", "EROLLDATE");
+		
+		for(Member m : mList) {
+			System.out.printf("%-10s %-10s %-8s %-5c %-20s %-15s %-4d %-20s %-15s\n",
+				m.getMemberId(), m.getMemberPwd(), m.getMemberName(),
+				m.getGender(), m.getEmail(), m.getPhone(),
+				m.getAge(), m.getAddress(), m.getEnrollDate());
+		}
+	}
 }
