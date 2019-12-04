@@ -163,4 +163,155 @@ public class MemberDAO {
 		
 	}
 	
+	// 3_11. 입력받은 성별의 회원 정보 조회용 DAO
+	public List<Member> selectGender(Connection conn, char gen) throws Exception{
+		
+		// 3_12. SQL을 DB에 전달하고 결과를 반환 받을 PreparedStatement,
+		//		 + DB 조회 결과 저장용 ResultSet, List 를 선언
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		List<Member> mList = null;
+		
+		// 3_13. query.properties 에 SQL 작성 후 얻어오기
+		String query = prop.getProperty("selectGender");
+		
+		// 3_14. 조회 결과 저장용 ArrayList 생성 
+		//		 + 한 행 임시 저장용 Member 참조 변수 선언
+		mList = new ArrayList<Member>();
+		Member member = null;
+		
+		// 3_15. 전달 받은 Connection 과 SQL 구문을 DB로 전달할 준비
+		try {
+			pstmt= conn.prepareStatement(query);
+			
+			// 3_16. 위치홀더에 알맞는 값 대입
+			pstmt.setString(1, gen+"");
+			
+			// 3_17. SQL 구문 수행 후 반환 값 rset에 저장
+			rset = pstmt.executeQuery();
+			
+			// 3_18. rset에 저장된 조회 정보를 mList 에 추가
+			while(rset.next()) {
+				String memberId = rset.getString("member_ID");
+				String memberPwd = rset.getString("member_PWD");
+				String memberName = rset.getString("member_NAME");
+				
+				char gender = rset.getString("gender").charAt(0);
+				String email = rset.getString("email");
+				String phone = rset.getString("phone");
+				String address = rset.getString("address");
+				int age = rset.getInt("age");
+				Date enrollDate = rset.getDate("enroll_date");
+				
+				member = new Member(memberId, memberPwd, memberName, gender, email, phone, address, age, enrollDate);
+				
+				mList.add(member);
+			}// while end 
+			
+		}finally {
+			// 3_19. 사용한 DB자원 반환
+			close(rset);
+			close(pstmt);
+		}
+		
+		// 3_20. mList 반환
+		return mList;
+	}
+	
+public List<Member> selectMemberId(Connection conn, String id) throws Exception{
+		
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		List<Member> mList = null;
+		
+		String query = prop.getProperty("selectMemberId");
+		
+		mList = new ArrayList<Member>();
+		Member member = null;
+		
+		try {
+			pstmt= conn.prepareStatement(query);
+			
+			
+			// setString(1, String id) 
+			// setString() 자체는 DB 로 넣을 때 전달하는 인자값을 ''를 자동으로 붙임
+			// pstmt.setString(1, id);
+			// --> '' : DB에서 모든 문자/문자열에 대한 리터럴
+			// 방법 1) DAO에서 SQL구문에 사용될 id 데이터 가공 
+			//pstmt.setString(1, "%"+id+"%");
+			pstmt.setString(1, id);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				String memberId = rset.getString("member_ID");
+				String memberPwd = rset.getString("member_PWD");
+				String memberName = rset.getString("member_NAME");
+				
+				char gender = rset.getString("gender").charAt(0);
+				String email = rset.getString("email");
+				String phone = rset.getString("phone");
+				String address = rset.getString("address");
+				int age = rset.getInt("age");
+				Date enrollDate = rset.getDate("enroll_date");
+				
+				member = new Member(memberId, memberPwd, memberName, gender, email, phone, address, age, enrollDate);
+				
+				mList.add(member);
+			}// while end 
+			
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		
+		// 3_20. mList 반환
+		return mList;
+	}
+
+
+public List<Member> selectAddress(Connection conn, String addr) throws Exception{
+	
+	PreparedStatement pstmt = null;
+	ResultSet rset = null;
+	List<Member> mList = null;
+	
+	String query = prop.getProperty("selectAddress");
+	
+	mList = new ArrayList<Member>();
+	Member member = null;
+	
+	try {
+		pstmt= conn.prepareStatement(query);
+		
+		
+		pstmt.setString(1, addr);
+		
+		rset = pstmt.executeQuery();
+		
+		while(rset.next()) {
+			String memberId = rset.getString("member_ID");
+			String memberPwd = rset.getString("member_PWD");
+			String memberName = rset.getString("member_NAME");
+			
+			char gender = rset.getString("gender").charAt(0);
+			String email = rset.getString("email");
+			String phone = rset.getString("phone");
+			String address = rset.getString("address");
+			int age = rset.getInt("age");
+			Date enrollDate = rset.getDate("enroll_date");
+			
+			member = new Member(memberId, memberPwd, memberName, gender, email, phone, address, age, enrollDate);
+			
+			mList.add(member);
+		}// while end 
+		
+	}finally {
+		close(rset);
+		close(pstmt);
+	}
+	
+	// 3_20. mList 반환
+	return mList;
+}
 }

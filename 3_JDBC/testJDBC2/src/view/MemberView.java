@@ -43,7 +43,7 @@ public class MemberView {
 			switch(sel) {
 			case 1 : mController.insertMember(); break;
 			case 2 : mController.selectAll(); break;
-			case 3 : break;
+			case 3 : mController.selectmember(); break;
 			case 4 : break;
 			case 5 : break;
 			case 0 : System.out.println("프로그램 종료");break;
@@ -119,4 +119,57 @@ public class MemberView {
 				m.getAge(), m.getAddress(), m.getEnrollDate());
 		}
 	}
+	
+	// 3_3. 검색 조건 선택용 View
+	public int selectCondition() {
+		
+		int sel = 0;
+		do {
+		System.out.println("1. 성별 조회");
+		System.out.println("2. 특정 단어가 포함된 아이디 조회");
+		System.out.println("3. 특정 지명이 포함된 주소 조회");
+		System.out.println("0. 메인 메뉴로 돌아가기");
+		System.out.print("검색 조건 선택 --> ");
+		
+		sel = sc.nextInt();
+		sc.nextLine();
+		
+		switch(sel) {
+		case 1 : case 2 : case 3 : case 0: return sel;
+		// Controller 로 sel 값 전달한뒤 각 case 에 따른 기능 구현
+		default : System.out.println("잘못 입력하셨습니다. 다시 입력해 주세요.");
+		}
+	}while(true);
+		
+	}
+	
+	// 3_6_1. 성별 입력용 View 
+	public char inputGender() {
+		char gender = ' ';
+		
+		while(true) {
+			System.out.print("성별 입력 (M/F) : ");
+			gender = sc.nextLine().toUpperCase().charAt(0);
+			
+			if(gender == 'M' || gender == 'F') break;
+			else System.out.println("M 또는 F 만 입력해주세요.");
+		}
+		return gender;
+		
+	}
+	// 3_6_2. 아이디에 포함된 단어 입력용 View 
+	public String inputMemberId() {
+		System.out.print("조회 하고자 하는 아이디에 포함된 단어 입력 : ");
+		String id = sc.nextLine();
+		return id;
+	}
+	
+	// 3_6_3. 주소에 포함된 지명 입력용 View 
+	public String inputAddress() {
+		System.out.print("조회 하고자 하는 주소에 포함된 지명 입력 : ");
+		String addr = sc.nextLine();
+		return addr;
+		
+	}
+	
 }

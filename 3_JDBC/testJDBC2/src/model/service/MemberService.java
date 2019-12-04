@@ -12,7 +12,8 @@ import model.vo.Member;
 // 프로젝트 생성시 마다 가져다 쓸수 있음.
 
 public class MemberService {
-	/* Service 클래스는 데이터에 대한 비즈니스 로직(가공) 수행 및
+	/* Service 클래스는 데이터에 대한 비즈니스 로직(가공(데이터)
+	 * : 요청에대한 응답을 하기위한 모든 업무 과정들/업무수행에 필요한 모든 것들) 수행 및
 	 * DB와의 연결 정보를 가지고 있는 Connection 객체를 생성하고,
 	 * 여러 DAO를 호출하여 하나의 요청에대한 
 	 * 여러번의 DB 접근/갱신을 진행하며 
@@ -101,7 +102,36 @@ public class MemberService {
 		// 2_17. 별도의 트랜잭션 처리가 필요하지 않으므로 
 		//		 바로 Controller 로 반환
 		return mList;
-				
+	}
+	
+	// 3_8. 입력받은 성별의 회원 정보만 조회용 Service  
+	public List<Member> selectGender(char gender) throws Exception{
+		
+		// 3_9. Connection 객체 얻어오기 + DAO 객체 생성
+		Connection conn = getConnection();
+		MemberDAO memberDAO = new MemberDAO();
+		
+		// 3_10. Connection 과 Controller 에서 전달 받은 값을 
+		//		 매개변수로 전달 받아 회원 정보를 조회하는 
+		//		 MemberDAO.selectGender(conn, gen) 작성
+		
+		// 3_21. MemberDAO.selectGender(conn,gen) 호출후 반환값 저장
+		List<Member> mList = memberDAO.selectGender(conn, gender);
+		
+		// 3_22. 별도의 트랜잭션 처리 필요 없이 바로 반환
+		return mList;
 		
 	}
+	
+	public List<Member> selectMemberId(String id) throws Exception{
+		Connection conn = getConnection();
+		MemberDAO memberDAO = new MemberDAO();
+		return memberDAO.selectMemberId(conn, id);
+	}
+	
+	public List<Member> selectAddress(String addr) throws Exception{
+		Connection conn = getConnection();
+		return new MemberDAO().selectAddress(conn, "%"+addr+"%");		
+	}
+	
 }

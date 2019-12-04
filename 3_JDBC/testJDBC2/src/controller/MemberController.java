@@ -116,4 +116,69 @@ public class MemberController {
 		
 	}
 	
+	
+	// 화면 : [화면1] 3 특정 회원 정보 조회 -> [화면2] 1. 조건    
+	//				 		 	 	  [화면3] 2. 조건
+	//					 	   		  [화면4] 3. 조건
+	
+	// 3. 특정 조건 회원 조회 - 경우 : 1명, 0명, 여러명
+	public void selectmember() {
+		
+		// 3_1. 조회 결과를 저장할 임시 List 참조 변수 선언
+		List<Member> mList = null;
+		
+		// 3_2. 검색 조건을 입력받기 위한 서브메뉴 View
+		//		MemberView.selectCondition() 메소드 작성
+		
+		// 3_4. 검색 조건을 입력 받아 저장
+		int sel = view.selectCondition();
+		
+		// 3_5. 검색 조건에 따라 알맞은 Service를 호출 할 수 있도록
+		// 		switch문 작성
+		try { // Controller에서 Exception 처리
+			
+			// 3_6. 각 조건에 맞는 값을 입력 받을 View 작성
+			// MemberView.inputGender()
+			// MemberView.inputMemberId()
+			// MemberView.inputAddress()
+			switch(sel)	{ // 1메소드에서 다양한 Service 호출가능
+			case 1: 
+				// 3_7. 입력받은 성별과 Connection 객체를 전달하는
+				//		 MemberService.selectGender(gender) 메소드 작성
+				
+				// 3_23. 1번 선택 시 성별을 입력받고, 조회결과를 반환 받아 저장
+				mList = mService.selectGender(view.inputGender());
+				break;
+			case 2:
+				mList = mService.selectMemberId(view.inputMemberId());
+				break;
+			case 3:
+				mList = mService.selectAddress(view.inputAddress());
+				break;
+			case 0:
+				
+				break;
+			}
+			
+			// 3_24. 조회 결과에 따라 View 연결 처리
+			if(!mList.isEmpty()) { // 조회 결과가 있을 경우
+				
+				// 3_25. 2번 기능에서 만들어 둔
+				//		 회원 정보 출력용 View 호출
+				view.displayMember(mList);
+				
+			}else { // 조회 결과가 없을 경우
+				// 3_26. MemberView.displaySuccess(msg) 호출
+				view.displaySuccess("조회 결과가 없습니다.");
+			}
+				
+		}catch(Exception e) {
+			// 3_27. MemberView.displayError(msg,e)호출
+			view.displayError("데이터 조회 과정 중 오류 발생 ", e);
+		}
+		// 3_28. MemberView.mainMenu() 의 
+		//		 case 3: 에서 MemberController.selectMember() 호출
+	}
+	
+	
 }
