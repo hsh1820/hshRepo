@@ -1,7 +1,7 @@
 package model.service;
 
 // static import 작성
-import static common.JDBCTemplate.*; 
+import static common.JDBCTemplate.*;
 
 import java.sql.Connection;
 import java.util.List;
@@ -134,4 +134,90 @@ public class MemberService {
 		return new MemberDAO().selectAddress(conn, "%"+addr+"%");		
 	}
 	
+	// 4_5. 아이디 존재 여부 확인 Service
+	public int checkMember(String memberId) throws Exception{
+		
+		// 4_6. Connection 얻어오기 + DAO 생성
+		Connection conn = getConnection();
+		MemberDAO memberDAO = new MemberDAO();
+		
+		// 4_7. MemberDAO.checkMember(conn, memberid) 메소드 작성
+		
+		// 4_17. MemberDAO.checkMember(conn, memberId) 호출 후 반환갑 저장
+		int check = memberDAO.checkMember(conn, memberId);
+		
+		// 4_18. 별도의 트랜잭션 처리 없이 반환
+		return check;
+				
+	}
+	
+	// 4_29. 회원정보 수정용 Service
+	public int updateMember(int sel, String memberId, String input) throws Exception{
+		
+		// 4_30. Connection, DAO 생성
+		Connection conn =getConnection();
+		MemberDAO memberDAO = new MemberDAO();
+		
+		// 4_31. 선택된 서브메뉴 각각에 대한 DAO 메소드를 만들지 않고
+		//		 하나의 DAO로 처리를 하되 
+		//		 수행할 SQL구문을 구분해 줄 변수 선언
+		String updateQuery = "updateMember"+sel;
+		
+		// 4_32. MemberDAO.updateMember(
+		//				Conn,updateQuery, memberId, input) 작성
+		
+		// 4_41. MemberDAO.updateMember(
+		//				Conn,updateQuery, memberId, input) 호출 후 반환값 저장
+		int result = memberDAO.updateMember(conn, updateQuery, memberId, input);
+		
+		// 4_42. 트랜잭션 처리 
+		if(result > 0) commit(conn);
+		else rollback(conn) ;
+		
+		return result;
+	}
+	public int deleteMember(String memberId) throws Exception{
+		
+		Connection conn =getConnection();
+		MemberDAO memberDAO = new MemberDAO();
+		
+		String deleteMember = "deleteMember";
+		
+		int result = memberDAO.deleteMember(conn, memberId, deleteMember);
+		
+		if(result > 0) commit(conn);
+		else rollback(conn) ;
+		
+		return result;
+	}
+	public String randomString() {
+		String  randomString = "";
+		int random = 0;
+		
+		for(int i = 0 ; i<6; ) {
+			random = (int)(Math.random() * (('z'+1) - '0')) + '0'; // 모르겟다
+			// random() : 0 이상 1 미만의 소수  
+			
+			if(random >= 'a' && random <= 'z' || 
+					random >= 'A' && random <= 'Z' ||
+						random >= '0' && random <= '9'
+					) {
+				randomString += (char)random;
+				i++;
+			}
+		}
+		return  randomString;
+	}
+	
+	// 6_2. Service 에서 자원 반납
+	public void exitProgram() {
+		close(getConnection());
+		// close(conn)아닌 이유 : conn이 자동완선되는 이유는 getConnection()만들때 매개변수 명을 
+		// conn으로 해놨기 때문에 자동완성으로 제공되는 것 뿐 
+		// 실제 Connection 데이터가 들어있는것은 getConnection() 메소드의 반환 값이기 때문 
+		
+	}
+	
+	
+
 }

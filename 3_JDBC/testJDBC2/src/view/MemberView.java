@@ -44,9 +44,9 @@ public class MemberView {
 			case 1 : mController.insertMember(); break;
 			case 2 : mController.selectAll(); break;
 			case 3 : mController.selectmember(); break;
-			case 4 : break;
-			case 5 : break;
-			case 0 : System.out.println("프로그램 종료");break;
+			case 4 : mController.updateMember(); break;
+			case 5 : mController.deleteMember(); break;
+			case 0 : System.out.println("프로그램 종료"); mController.exitProgram(); 
 			default: System.out.println("잘못 입력하셨습니다. 다시 입력해주세요.");				
 			}
 			
@@ -172,4 +172,54 @@ public class MemberView {
 		
 	}
 	
+	// 4_2. 아이디 입력용 View
+	public String selectMemberId() {
+		System.out.print("아이디 : ");
+		return sc.nextLine(); 
+		
+	}
+	
+	// 4_22. 회원 정보 수정 서브메뉴 
+	public int updateMember() {
+		System.out.println("존재하는 아이디 입니다.\n");
+		
+		int sel = 0;
+		
+		while(true) {
+			System.out.println("1. 비밀번호 변경");
+			System.out.println("2. 이메일 변경");
+			System.out.println("3. 전화번호 변경");
+			System.out.println("4. 주소 변경");
+			System.out.println("0. 메인 메뉴로 돌아가기");
+			System.out.print("수정할 메뉴 선택 --> ");
+			sel = sc.nextInt();
+			sc.nextLine();
+			
+			switch(sel) {
+			case 1: case 2 : case 3 : case 4 : case 0 : return sel;
+			default : System.out.println("잘못 입력하셨습니다. 다시 입력해주세요.");
+			}
+		}
+		
+	}
+	
+	// 4_26. 수정할 값을 입력받을 View
+	public String inputUpdate() {
+		System.out.print("수정할 값 입력 : ");
+		return sc.nextLine();
+	}
+	
+	public char deleteMember() {
+		System.out.print("정말로 삭제하시겠습니까? (Y/N) : ");
+		return sc.nextLine().charAt(0);
+	}
+	
+	public String inputRandom(String randomString) {
+		System.out.println(randomString);
+		
+		System.out.print("보안문자 입력 : ");
+		String ran = sc.nextLine();
+		
+		return ran;
+	}
 }

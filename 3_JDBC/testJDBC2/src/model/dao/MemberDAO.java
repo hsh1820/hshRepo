@@ -1,6 +1,6 @@
 package model.dao;
 
-import static common.JDBCTemplate.close;
+import static common.JDBCTemplate.*;
 
 import java.io.FileReader;
 import java.sql.Connection;
@@ -313,4 +313,97 @@ public List<Member> selectAddress(Connection conn, String addr) throws Exception
 	// 3_20. mList 반환
 	return mList;
 }
+
+ 	// 4_8. 아이디가 일치하는 회원 존재여부 호가인용 DAO
+	public int checkMember(Connection conn, String memberId) throws Exception{
+		
+		// 4_9. SQL을 DB에 전달하고 결과를 반환 받을 객체 선언
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		int check = 0;
+		
+		// 4_10. query.properties 에 SQL 구문 작성 후 얻어오기
+		String query = prop.getProperty("checkMember");
+		
+		// 4_11. SQL구문 DB전달 준비
+		try {
+			pstmt = conn.prepareStatement(query);
+			
+			// 4_12. 위치홀더에 알맞은 값 대입 
+			pstmt.setString(1, memberId);
+			
+			// 4_13. SQL 실행 결과를 rset에 저장
+			rset = pstmt.executeQuery();
+			
+			// 4_14. 조회 결과를 check에 저장
+			if(rset.next()) {
+				check = rset.getInt(1);
+					// 얻어올 값이 있는 컬럼순서 지정 가능
+					// 확실한건 컬럼이름
+			}
+		}finally {
+			// 4_15. DB 사용 자원 반환
+			close(rset);
+			close(pstmt);
+		}
+		
+		// 4_16. 조회 결과 반환 
+		return check;
+	}
+	
+	// 4_33. 회원 정보 수정용 DAO
+	public int updateMember(Connection conn, String updateQuery,
+					String memberId, String input) throws Exception {
+		
+		// 4_34. SQL DB 전달 및 결과 반환 받을 변수 선언
+		PreparedStatement pstmt = null;
+		int result =0;
+		
+		// 4_35. query.properties 에서 SQL 구문 작성 후 얻어오기 
+		String query = prop.getProperty(updateQuery);
+		
+		// 4_36. SQL DB 전달 준비
+		try {
+			pstmt = conn.prepareStatement(query);
+			
+			// 4_37. 위치홀더에 알맞은 값 대입
+			pstmt.setString(1, input);
+			pstmt.setString(2, memberId);
+			
+			// 4_38. SQL 구문 실행 후 결과를 반환 받아 저장
+			result = pstmt.executeUpdate();
+			
+			
+		}finally {
+			// 4_39. DB 사용 자원 반환
+			close(pstmt);
+		}
+		
+		// 4_40. 수정 결과 반환
+		return result;
+	}
+	public int deleteMember(Connection conn, String memberId, String deleteQuery) throws Exception {
+		
+		PreparedStatement pstmt = null;
+		int result =0;
+		
+		String query = prop.getProperty(deleteQuery);
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			
+			pstmt.setString(1, memberId);
+			
+			result = pstmt.executeUpdate();
+			
+			
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
+		}
+
+
+	
 }
