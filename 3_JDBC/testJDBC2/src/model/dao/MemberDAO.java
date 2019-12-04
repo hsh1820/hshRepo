@@ -45,7 +45,6 @@ public class MemberDAO {
 		prop = new Properties();
 		
 		prop.load(new FileReader("query.properties"));
-		
 	}
 	
 	// 1_14. 새로운 회원 정보 추가 DAO
