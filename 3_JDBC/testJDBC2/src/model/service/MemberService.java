@@ -28,7 +28,7 @@ public class MemberService {
 	 * 4) Connection 객체와 Controller에서 전달 받은 데이터를
 	 * 	    알맞은 DAO 메소드로 전달(호출)
 	 * 5) DAO 수행 결과를 가지고 필요시 
-	 *    데이터 가공 및 트랜잭션 처리 진
+	 *    데이터 가공 및 트랜잭션 처리 진행
 	 * */
 	
 	// 1_6. 새로운 회원 정보 추가용 Service

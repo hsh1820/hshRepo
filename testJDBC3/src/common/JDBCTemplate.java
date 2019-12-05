@@ -10,7 +10,7 @@ import java.sql.Statement;
 import java.util.Properties;
 
 public class JDBCTemplate {
-	/* 기존에는 DB 처리 작업(쿼리문을 하나 보낼때마다 실행하는 것) 마다
+	/* 기존에는 DB 처리 작업 시 (쿼리문을 하나 보낼때마다 실행하는 것) 마다
 	 * 새로운 Connection 객체를 생성하여 DB 연결을 진행함.
 	 * 이렇게 하면 한 사용자가 여러 개의 커넥션을 생성하게 됨. 
 	 * --> 메모리 낭비 증가, 객체 생성 소멸에 따른 시간 소비
