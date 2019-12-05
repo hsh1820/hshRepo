@@ -1,0 +1,9 @@
+	public void selectAll(List<Board> bList) {
+		System.out.printf("%-3s %-15s %-10s %-15s\n",
+							"BNO", "TITLE", "WRITER", "CREATE_DATE");
+		System.out.println("------------------------------------------");
+		for(Board b : bList) {
+			System.out.printf("%-3d %-15s %-10s %-15s\n",
+						b.getbNo(), b.getTitle(), b.getWriter(), b.getCreateDate());
+		}
+	}
