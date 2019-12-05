@@ -195,7 +195,7 @@ public class MemberService {
 		int random = 0;
 		
 		for(int i = 0 ; i<6; ) {
-			random = (int)(Math.random() * (('z'+1) - '0')) + '0'; // 모르겟다
+			random = (int)(Math.random() * (('z'+1) - '0')) + '0';
 			// random() : 0 이상 1 미만의 소수  
 			
 			if(random >= 'a' && random <= 'z' || 
