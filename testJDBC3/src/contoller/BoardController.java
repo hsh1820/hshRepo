@@ -104,6 +104,8 @@ public void updateBoard() {
 		
 		try {	
 
+			
+			
 			int result = 0;
 			
 			// 로그인한 아이디와  게시글 번호에 해당하는 행의 아이디가져와서 비교 
@@ -111,7 +113,10 @@ public void updateBoard() {
 				
 				int selMenu = view.inputSubUpdate(); // 제목/ 내용 수정 선택 메뉴 번호 반환
 				
+				
 				String memberId = bService.selectBoard2(sel);
+				
+				while(true) {
 				if (BoardController.loginMember.getMemberId().equals(memberId)) {
 					
 				
@@ -119,18 +124,18 @@ public void updateBoard() {
 				
 				case 1 : {
 						String inputTitle =  view.inputTitle();
-						result = bService.updateTitle(inputTitle,memberId); break;
+						result = bService.updateTitle(inputTitle,memberId,sel); break;
 					}
 
 				case 2 : {
 					Board board = view.inputContent();
-					result = bService.updateContent(board ,memberId); break;
+					result = bService.updateContent(board ,memberId,sel); break;
 				}
 				default : System.out.println("잘못 입력하셨습니다. 다시 입력해 주세요.");
 					
-				}
-				
-						
+					}
+				break;
+				}		
 			
 			if(result > 0 ) {
 				view.displaySuccess("게시글이 등록되었습니다.");

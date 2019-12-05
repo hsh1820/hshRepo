@@ -171,7 +171,7 @@ public class BoardDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
-		String query = prop.getProperty("selectBoard2"); 
+		String query = prop.getProperty("selectBoard"); 
 		String memberId = null;
 		
 		try {
@@ -191,7 +191,7 @@ public class BoardDAO {
 		return memberId;
 	}
 
-	public int updateTitle(Connection conn,String inputTitle, String memberId) throws Exception{
+	public int updateTitle(Connection conn,String inputTitle, String memberId, int sel) throws Exception{
 		PreparedStatement pstmt = null;
 		int result = 0;
 		
@@ -202,6 +202,7 @@ public class BoardDAO {
 			
 			pstmt.setString(1, inputTitle);
 			pstmt.setString(2, memberId);
+			pstmt.setInt(3, sel);
 			
 			result = pstmt.executeUpdate();
 			
@@ -212,7 +213,7 @@ public class BoardDAO {
 		return result;
 	}
 
-	public int updateContent(Connection conn, Board board, String memberId) throws Exception{
+	public int updateContent(Connection conn, Board board, String memberId , int sel) throws Exception{
 		PreparedStatement pstmt = null;
 		int result = 0;
 		
@@ -223,6 +224,7 @@ public class BoardDAO {
 			
 			pstmt.setString(1, board.getContent());
 			pstmt.setString(2, memberId);
+			pstmt.setInt(3, sel);
 			
 			result = pstmt.executeUpdate();
 			
