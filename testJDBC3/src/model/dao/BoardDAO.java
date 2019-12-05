@@ -191,11 +191,12 @@ public class BoardDAO {
 		return memberId;
 	}
 
-	public int updateTitle(Connection conn,String inputTitle, String memberId, int sel) throws Exception{
+	public int updateBoard(Connection conn, String updateQuery, String inputTitle, String memberId, int sel) throws Exception{
 		PreparedStatement pstmt = null;
 		int result = 0;
 		
-		String query = prop.getProperty("updateTitle");
+		String query = prop.getProperty(updateQuery);
+		// 1 : title , 2 : content
 				
 		try {
 			pstmt = conn.prepareStatement(query);
@@ -213,27 +214,7 @@ public class BoardDAO {
 		return result;
 	}
 
-	public int updateContent(Connection conn, Board board, String memberId , int sel) throws Exception{
-		PreparedStatement pstmt = null;
-		int result = 0;
-		
-		String query = prop.getProperty("updateContent");
-				
-		try {
-			pstmt = conn.prepareStatement(query);
-			
-			pstmt.setString(1, board.getContent());
-			pstmt.setString(2, memberId);
-			pstmt.setInt(3, sel);
-			
-			result = pstmt.executeUpdate();
-			
-		}finally {
-			close(pstmt);
-		}
-		
-		return result;
-	}
+	
 	
 
 }

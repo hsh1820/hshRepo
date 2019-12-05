@@ -72,26 +72,21 @@ public String selectBoard2(int sel) throws Exception{
 		return result ;
 	}
 
-	public int updateTitle(String inputTitle,String memberId, int sel)  throws Exception{
+	public int updateBoard(Board board, String inputTitle,String memberId, int sel , int selMenu)  throws Exception {
 		Connection conn = getConnection();
 		BoardDAO boardDAO = new BoardDAO();
 		
-		int result = boardDAO.updateTitle(conn, inputTitle, memberId, sel);
+		
+		String updateQuery = "updateBoard1"+ selMenu;
+		
+		int result = boardDAO.updateBoard(conn, updateQuery, inputTitle, memberId, sel);
 		
 		if (result > 0)	commit(conn);
 		else 			rollback(conn);
 		return result ;
-	}
-
-	public int updateContent(Board board, String memberId , int sel)  throws Exception {
-		Connection conn = getConnection();
-		BoardDAO boardDAO = new BoardDAO();
 		
-		int result = boardDAO.updateContent(conn, board, memberId, sel);
-		
-		if (result > 0)	commit(conn);
-		else 			rollback(conn);
-		return result ;
 	}
+	
+	
 
 }

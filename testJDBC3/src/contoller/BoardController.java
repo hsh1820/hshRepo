@@ -118,18 +118,17 @@ public void updateBoard() {
 				
 				while(true) {
 				if (BoardController.loginMember.getMemberId().equals(memberId)) {
-					
+					Board board = view.inputContent();
 				
 				switch(selMenu) {
 				
 				case 1 : {
 						String inputTitle =  view.inputTitle();
-						result = bService.updateTitle(inputTitle,memberId,sel); break;
+						result = bService.updateBoard(board, inputTitle,memberId,sel,selMenu);
+						break;
 					}
-
 				case 2 : {
-					Board board = view.inputContent();
-					result = bService.updateContent(board ,memberId,sel); break;
+					break;
 				}
 				default : System.out.println("잘못 입력하셨습니다. 다시 입력해 주세요.");
 					
