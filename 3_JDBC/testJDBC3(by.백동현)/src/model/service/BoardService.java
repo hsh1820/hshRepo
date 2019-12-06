@@ -7,6 +7,7 @@ import java.util.List;
 
 import model.dao.BoardDAO;
 import model.vo.Board;
+import model.vo.Comment;
 import model.vo.Member;
 
 /**
@@ -133,6 +134,66 @@ public class BoardService {
 		return str;
 	}
 
+
+	public List<Comment> selectCommAll(int Bbno) throws Exception {
+
+		Connection conn = getConnection();
+		BoardDAO boardDAO = new BoardDAO();
+		
+		return boardDAO.selectCommAll(conn, Bbno);
+	}
+
+
+	public int inputComm(int bNo, String inputComm) throws Exception {
+
+		Connection conn = getConnection();
+		BoardDAO boardDAO = new BoardDAO();
+		
+		int result = boardDAO.inputComm(conn, bNo, inputComm);
+		
+		if(result > 0) commit(conn);
+		else		   rollback(conn);
+		
+		return result;
+	}
+
+
+	public String selectMemberId(int sel) throws Exception{
+		Connection conn = getConnection();
+		BoardDAO boardDAO = new BoardDAO();
+		
+		String memberId = boardDAO.selectMemberId(conn, sel); 
+		return  memberId;
+	}
+
+
+	public int updateComm(int sel, String updateComm) throws Exception{
+		Connection conn = getConnection();
+		BoardDAO boardDAO = new BoardDAO();
+		
+		int result = boardDAO.updateComm(conn, sel, updateComm);
+		
+		if(result > 0) commit(conn);
+		else		   rollback(conn);
+		
+		return result;
+	}
+
+
+	public int deleteComm(int sel) throws Exception	{
+		Connection conn = getConnection();
+		BoardDAO boardDAO = new BoardDAO();
+		
+		int result = boardDAO.deleteComm(conn, sel);
+		
+		if(result > 0) commit(conn);
+		else		   rollback(conn);
+		
+		return result;
+	}
+	
+	
+	
 	
 }
 

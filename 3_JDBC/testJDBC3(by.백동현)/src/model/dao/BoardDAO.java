@@ -14,6 +14,7 @@ import java.util.Properties;
 
 import controller.BoardController;
 import model.vo.Board;
+import model.vo.Comment;
 import model.vo.Member;
 
 /**
@@ -242,7 +243,134 @@ public class BoardDAO {
 		
 		return result;
 	}
-	
+
+
+	public List<Comment> selectCommAll(Connection conn, int Bbno) throws Exception{
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		List<Comment> cList = null;
+
+		String query = prop.getProperty("selectCommAll");
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			
+			pstmt.setInt(1, Bbno);
+			
+			rset = pstmt.executeQuery();
+			
+			cList = new ArrayList<Comment>();
+			Comment comment = null;
+			
+			while(rset.next()) {
+				int cBno = rset.getInt("C_BNO");
+				String content = rset.getString("CONTENT");
+				String writer = rset.getString("WRITER");
+				Date createDate = rset.getDate("CREATE_DATE");
+				
+				comment = new Comment(cBno, content, writer, createDate);
+				
+				cList.add(comment);
+			}
+		}finally {
+			close(rset);
+			close(pstmt);
+		}
+		return cList;
+	}
+
+
+	public int inputComm(Connection conn, int bNo, String inputComm) throws Exception{
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		String query = prop.getProperty("inputComm");
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			
+			pstmt.setInt(1, bNo);
+			pstmt.setString(2, inputComm);
+			pstmt.setString(3, BoardController.loginMember.getMemberId());
+			
+			result = pstmt.executeUpdate();
+			
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+
+	public String selectMemberId(Connection conn, int sel) throws Exception{
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		String memberId= null;
+		
+		String query = prop.getProperty("selectMemberId");
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			
+			pstmt.setInt(1, sel);
+			
+			rset = pstmt.executeQuery();
+			
+			while(rset.next()) {
+				memberId = rset.getString("WRITER");				
+			}
+		}finally {
+			close(pstmt);
+		}
+		
+		return memberId;
+	}
+
+
+	public int updateComm(Connection conn, int sel, String updateComm) throws Exception{
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		String query = prop.getProperty("updateComm");
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			
+			pstmt.setString(1, updateComm);
+			pstmt.setInt(2, sel);
+			
+			result = pstmt.executeUpdate();
+			
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+
+	public int deleteComm(Connection conn, int sel)throws Exception {
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		String query = prop.getProperty("deleteComm");
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			
+			pstmt.setInt(1, sel);
+			
+			result = pstmt.executeUpdate();
+			
+		}finally {
+			close(pstmt);
+		}
+		
+		return result;
+	}
+
+
 	
 	
 }

@@ -5,20 +5,13 @@ import java.util.Scanner;
 
 import controller.BoardController;
 import model.vo.Board;
+import model.vo.Comment;
 import model.vo.Member;
 
-/**
- * 게시판 프로그램 View
- * @author Baek Dong Hyeon
- */
 public class BoardView {
 
 	private Scanner sc = new Scanner(System.in);
 	
-	
-	/**
-	 * 게시판 프로그램 메인 메뉴
-	 */
 	public void mainMenu() {
 		BoardController bController = new BoardController();
 		
@@ -26,10 +19,10 @@ public class BoardView {
 		
 		do {
 			if(BoardController.loginMember == null ) {
-				// 프로그램 시작 시 로그인 체크
 				System.out.println("\n *** 게시판 프로그램 *** \n");
 				
 				System.out.println("1. 로그인");
+				System.out.println("2. 회원가입");
 				System.out.println("0. 프로그램 종료");
 				System.out.print("메뉴 선택 ==> ");
 				sel = sc.nextInt();
@@ -37,6 +30,7 @@ public class BoardView {
 				
 				switch(sel) {
 				case 1: bController.login(); break;
+				case 2: bController.join(); break;
 				case 0: System.out.println("프로그램 종료."); break;
 				default : System.out.println("잘못 입력하셨습니다. 다시 입력해주세요.");
 				}
@@ -217,6 +211,92 @@ public class BoardView {
 		System.out.print("입력 : ");
 		return sc.nextLine();
 	}
+
+
+	public void commentAll(List<Comment> cList) {
+		System.out.printf("%-3s %-15s\t\t%-10s %-3s\n","번호", "댓글 내용", "작성자", "작성일");
+		System.out.println("-------------------------------------------------");
+		
+		for(Comment c : cList) {
+		System.out.printf("%-3s %-15s %-10s %-15s\n",
+			 c.getcBno() ,c.getContent(), c.getWriter(), c.getCreateDate());
+		}
+		System.out.println("-------------------------------------------------");
+	}
+
+
+	public int commMenu() {
+		while(true) {
+		System.out.println("1. 댓글 입력");
+		System.out.println("2. 댓글 수정");
+		System.out.println("3. 댓글 삭제");
+		System.out.println("0. 목록으로");
+		System.out.print("메뉴 입력 : ");
+		int sel = sc.nextInt();
+		sc.nextLine();
+		
+		switch(sel) {
+		case 1: case 2 : case 3: case 0:  return sel;
+		default : System.out.println("잘못 입력하셨습니다. 다시 입력해주세요.");
+				
+		}
+	}
+}
+
+
+	public String inputComm() {
+		
+		
+		StringBuffer content = new StringBuffer();
+		StringBuffer input = new StringBuffer();
+		System.out.println("----- 댓글 내용 입력(종료 시 exit 입력) -----");
+		while(true) {
+			
+			input.delete(0, input.capacity());
+			input.append(sc.nextLine());
+			
+			if(input.toString().equals("exit")) break;
+			
+			content.append(input);
+			content.append("\n");
+		}
+		
+		return content.toString() ; 
+		
+	}
+
+
+	public String updateComm() {
+		
+		StringBuffer content = new StringBuffer();
+		StringBuffer input = new StringBuffer();
+		System.out.println("----- 댓글 내용 입력(종료 시 exit 입력) -----");
+		while(true) {
+			
+			input.delete(0, input.capacity());
+			input.append(sc.nextLine());
+			
+			if(input.toString().equals("exit")) break;
+			
+			content.append(input);
+			content.append("\n");
+		}
+		
+		return content.toString() ; 
+		
+		
+	}
+
+
+	public int selectComminput() {
+		System.out.print("댓글 번호 입력 : ");
+		int no = sc.nextInt();
+		sc.nextLine();
+		return no;
+	}
+
+	
+	
 }
 
 

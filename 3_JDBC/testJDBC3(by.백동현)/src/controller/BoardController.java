@@ -3,9 +3,12 @@ package controller;
 import java.util.List;
 
 import model.service.BoardService;
+import model.service.MemberService;
 import model.vo.Board;
+import model.vo.Comment;
 import model.vo.Member;
 import view.BoardView;
+import view.MemberView;
 
 /**
  * 게시판 프로그램 Controller
@@ -13,6 +16,9 @@ import view.BoardView;
  */
 public class BoardController {
 	private BoardService bService = new BoardService();
+	private MemberService mService = new MemberService();
+	
+	private MemberView mView = new MemberView();
 	private BoardView view = new BoardView();
 	
 	// 로그인 정보를 유지할 Member 참조 변수 선언(Session 역할)
@@ -62,19 +68,108 @@ public class BoardController {
 		
 		// 글 번호 입력 View
 		int bNo = view.inputBNo();
-		
+		while(true) {
 		try {
 			Board board = bService.selectBoard(bNo);
 			
 			if(board != null) {
 				view.selectBoard(board);
+				
+				List<Comment> cList = bService.selectCommAll(bNo);
+				
+				if(!cList.isEmpty()) {
+					view.commentAll(cList);
+					
+
+					int commMenu = view.commMenu();
+					
+					switch(commMenu) {
+					case 1: {
+						String inputComm = view.inputComm();
+						int result = bService.inputComm(bNo,inputComm);
+						if(result > 0) {
+							view.displaySuccess("댓글이 등록되었습니다.");
+							break;
+						}else {
+							view.displayFail("댓글 등록에 실패하였습니다.");
+							break;
+						}
+						
+					}
+					case 2: {
+						view.selectBoard(board);
+						view.commentAll(cList);
+						
+						int sel = view.selectComminput();
+						
+						String memberId = bService.selectMemberId(sel);
+								
+						
+						if(BoardController.loginMember.getMemberId().equals(memberId)) {
+							
+							
+							String updateComm = view.updateComm();
+							
+							int result = bService.updateComm(sel,updateComm);
+							
+							if(result > 0) {
+								view.displaySuccess("댓글이 수정되었습니다.");
+								break;
+							}else {
+								view.displayFail("댓글 수정에 실패하였습니다.");
+								break;
+							}
+						}else {
+							view.displaySuccess("자신이 작성한 댓글만 수정할 수 있습니다.");
+						}
+					}
+					case 3: {
+						view.selectBoard(board);
+						view.commentAll(cList);
+						
+						int sel = view.selectComminput();
+						
+						String memberId = bService.selectMemberId(sel);
+								
+						if(BoardController.loginMember.getMemberId().equals(memberId)) {
+							int result = bService.deleteComm(sel);
+														
+							if(result > 0) {
+								view.displaySuccess("댓글이 수정되었습니다.");
+								break;
+							}else {
+								view.displayFail("댓글 수정에 실패하였습니다.");
+								break;
+							}
+						}else {
+							view.displaySuccess("자신이 작성한 댓글만 수정할 수 있습니다.");
+							break;
+						}
+						
+					}
+					
+					case 0: return; 
+						
+					}
+					
+					
+					
+					
+					
+				}else {
+					view.displayFail("댓글이 존재하지 않습니다.");
+				}
+				
+				
 			}else {
 				view.displayFail("해당 글이 존재하지 않습니다.");
 			}
+			
 		} catch (Exception e) {
 			view.displayError("게시글 목록 조회 과정 중 오류 발생", e);
 		}
 	}
+}
 	
 	
 	public void insertBoard() {
@@ -164,7 +259,29 @@ public class BoardController {
 		}catch (Exception e) {
 			view.displayError("게시글 목록 조회 과정 중 오류 발생", e);
 		}
-	}	
+	}
+
+
+	public void join() {
+				Member member = mView.insertMember();
+				
+			
+					try {
+						int result = mService.insertMember(member);
+						if (result > 0) { 
+							view.displaySuccess("회원가입이 완료되었습니다.");
+
+						} else {
+							view.displayFail("회원가입 실패");
+						}
+
+					} catch (Exception e) {
+						view.displayError("데이터 삽입 과정 중 오류 발생", e);
+
+					}
+				
+		
+				}
 	
 	
 }
