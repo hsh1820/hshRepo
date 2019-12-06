@@ -8,12 +8,10 @@ import java.util.List;
 import model.dao.BoardDAO;
 import model.vo.Board;
 import model.vo.Comment;
+import model.vo.Count;
 import model.vo.Member;
 
-/**
- * 게시판 프로그램 Service
- * @author Baek Dong Hyeon
- */
+
 public class BoardService {
 
 	/** 로그인용 Service
@@ -191,8 +189,35 @@ public class BoardService {
 		
 		return result;
 	}
-	
-	
+
+
+	public int countBoard(int bNo) throws Exception{
+		Connection conn = getConnection();
+		BoardDAO boarDAO = new BoardDAO();
+		
+		return boarDAO.countBaord(conn, bNo);
+	}
+
+
+	public int updateCount(int bNo, int count)throws Exception{
+		Connection conn = getConnection();
+		BoardDAO boardDAO = new BoardDAO();
+		
+		int result = boardDAO.updateCount(conn, bNo, (count+1));
+		
+		if(result > 0) commit(conn);
+		else		   rollback(conn);
+		
+		return result;
+	}
+
+
+	public List<Count> CommSelectAll() throws Exception{
+		Connection conn = getConnection();
+		BoardDAO boardDAO = new BoardDAO();
+		
+		return boardDAO.CommSelectAll(conn);
+	}
 	
 	
 }

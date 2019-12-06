@@ -116,7 +116,7 @@ public class MemberDAO {
 		List<Member> mList = null;
 		
 		// 2_8. query.properties 파일에 SQL구문 작성 후 얻어오기
-		String query = prop.getProperty("selectAll");
+		String query = prop.getProperty("selectMemberAll");
 		
 		// 2_9. 전달받은 Connection 과 query를 이용하여 DB로 SQL문 전달
 		try {
@@ -223,7 +223,7 @@ public List<Member> selectMemberId(Connection conn, String id) throws Exception{
 		ResultSet rset = null;
 		List<Member> mList = null;
 		
-		String query = prop.getProperty("selectMemberId");
+		String query = prop.getProperty("selectMemberId2");
 		
 		mList = new ArrayList<Member>();
 		Member member = null;

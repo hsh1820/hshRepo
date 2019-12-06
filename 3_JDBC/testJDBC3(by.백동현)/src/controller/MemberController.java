@@ -4,6 +4,7 @@ import java.util.List;
 
 import model.service.MemberService;
 import model.vo.Member;
+import view.BoardView;
 import view.MemberView;
 
 public class MemberController {
@@ -12,7 +13,7 @@ public class MemberController {
 	// 동작 중 필요한 서브메뉴, 결과를 반환할 뷰를 호출하기 위한
 	// MemberView 객체 선언
 	private MemberView view = new MemberView();
-
+	private BoardView bview = new BoardView(); 
 	// 1_4. 동작
 	private MemberService mService = new MemberService();
 
@@ -249,7 +250,6 @@ public class MemberController {
 			if(random.equals(view.inputRandom(random))) { // 입력된 보안문자
 				
 			
-			////------------------------------------------------
 			int check = mService.checkMember(memberId);
 			if (check < 1) {
 				view.displayFail("존재하지 않는 아이디 입니다.");
@@ -261,7 +261,10 @@ public class MemberController {
 					int result = mService.deleteMember(memberId);
 
 					if (result > 0) {
-						view.displaySuccess(result + "개의 행이 수정되었습니다.");
+						view.displaySuccess("정상적으로 탈퇴되었습니다.");
+						BoardController.loginMember = null; 
+						bview.mainMenu();
+						;
 					} else {
 						view.displayFail("데이터 수정 실패");
 					}
@@ -276,7 +279,6 @@ public class MemberController {
 		
 	}
 
-	// 6. 프로그램 종료
 	public void exitProgram() {
 		mService.exitProgram();
 	}

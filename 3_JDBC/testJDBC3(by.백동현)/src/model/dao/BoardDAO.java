@@ -15,7 +15,9 @@ import java.util.Properties;
 import controller.BoardController;
 import model.vo.Board;
 import model.vo.Comment;
+import model.vo.Count;
 import model.vo.Member;
+import oracle.net.aso.r;
 
 /**
  * 게시판 프로그램 DAO
@@ -371,6 +373,81 @@ public class BoardDAO {
 	}
 
 
+	public int countBaord(Connection conn, int bNo) throws Exception {
+		PreparedStatement pstmt = null;
+		ResultSet rset = null;
+		int count = 0;
+		
+		String query = prop.getProperty("countSelect");
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			pstmt.setInt(1, bNo);
+			
+			rset = pstmt.executeQuery();
+			
+			if(rset.next()) {
+				count = rset.getInt("COUNT");
+			}
+		}finally {
+			close(pstmt);
+			close(rset);
+		}
+		
+		return count;
+	}
+
+
+	public int updateCount(Connection conn, int bNo, int count) throws Exception{
+		PreparedStatement pstmt = null;
+		int result = 0;
+		
+		String query = prop.getProperty("updateCount");
+		
+		try {
+			pstmt = conn.prepareStatement(query);
+			
+			pstmt.setInt(1, count);
+			pstmt.setInt(2, bNo);
+			
+			result = pstmt.executeUpdate();
+			
+		} finally {
+			close(pstmt);
+		}
+		return result;
+
+	}
+
+
+	public List<Count> CommSelectAll(Connection conn) throws Exception{
+		Statement stmt = null;
+		ResultSet rset = null;
+		List<Count> cList = null;
+
+		String query = prop.getProperty("CommSelectAll");
+		
+		try {
+			stmt = conn.createStatement();
+			
+			rset = stmt.executeQuery(query);
+			
+			cList = new ArrayList<Count>();
+			Count count = null;
+			
+			while(rset.next()) {
+				int cCount = rset.getInt("count");
+				
+				count = new Count(cCount);
+				
+				cList.add(count);
+			}
+		}finally {
+			close(rset);
+			close(stmt);
+		}
+		return cList;
+	}
 	
 	
 }

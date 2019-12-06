@@ -3,6 +3,7 @@ package view;
 import java.util.List;
 import java.util.Scanner;
 
+import controller.BoardController;
 import controller.MemberController;
 import model.vo.Member;
 
@@ -19,7 +20,7 @@ public class MemberView {
 	 * 
 	 * 단축키 : Alt + Shift + j
 	 *  또는 에디터 창에 /** */
-	public void mainMenu() {
+	public void adminmainMenu() {
 		
 		// MemberController 객체 생성
 		MemberController mController = new MemberController();
@@ -34,7 +35,7 @@ public class MemberView {
 			System.out.println("3. 특정 조건 회원 정보 조회");
 			System.out.println("4. 회원 정보 수정");
 			System.out.println("5. 회원 탈퇴");
-			System.out.println("0. 프로그램 종료");
+			System.out.println("0. 뒤로가기 ");
 			
 			System.out.print("메뉴 선택 >> ");
 			sel = sc.nextInt();
@@ -46,7 +47,7 @@ public class MemberView {
 			case 3 : mController.selectmember(); break;
 			case 4 : mController.updateMember(); break;
 			case 5 : mController.deleteMember(); break;
-			case 0 : System.out.println("프로그램 종료"); mController.exitProgram(); 
+			case 0 : break;
 			default: System.out.println("잘못 입력하셨습니다. 다시 입력해주세요.");				
 			}
 			
@@ -181,7 +182,7 @@ public class MemberView {
 	
 	// 4_22. 회원 정보 수정 서브메뉴 
 	public int updateMember() {
-		System.out.println("존재하는 아이디 입니다.\n");
+		System.out.println(BoardController.loginMember.getMemberName()+"님의 정보 수정 페이지 입니다.\n");
 		
 		int sel = 0;
 		
@@ -222,4 +223,35 @@ public class MemberView {
 		
 		return ran;
 	}
+
+	public void mainMenu() {
+
+		// MemberController 객체 생성
+		MemberController mController = new MemberController();
+		
+		// 메뉴 선택값 저장용 변수 선언
+		int sel = 0;
+		
+		do {
+			System.out.println("\n *** 내 정보 관리  *** \n");
+			System.out.println("1. 회원 정보 수정");
+			System.out.println("2. 회원 탈퇴");
+			System.out.println("0. 뒤로가기");
+			
+			System.out.print("메뉴 선택 >> ");
+			sel = sc.nextInt();
+			sc.nextLine(); // Scanner 버퍼에 남아있는 개행 문자 제거
+			
+			switch(sel) {
+			case 1 : mController.updateMember(); break;
+			case 2 : mController.deleteMember(); return;
+			case 0 : break; 
+			default: System.out.println("잘못 입력하셨습니다. 다시 입력해주세요.");				
+			}
+			
+		}while(sel != 0);
+	}
+	
+		
+	
 }

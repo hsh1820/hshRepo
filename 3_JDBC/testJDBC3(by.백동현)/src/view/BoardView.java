@@ -6,6 +6,7 @@ import java.util.Scanner;
 import controller.BoardController;
 import model.vo.Board;
 import model.vo.Comment;
+import model.vo.Count;
 import model.vo.Member;
 
 public class BoardView {
@@ -14,6 +15,7 @@ public class BoardView {
 	
 	public void mainMenu() {
 		BoardController bController = new BoardController();
+				
 		
 		int sel = 0;
 		
@@ -36,28 +38,58 @@ public class BoardView {
 				}
 			
 			}else {
-				System.out.println("1. 로그아웃");
-				System.out.println("2. 글 목록 조회");
-				System.out.println("3. 게시글 조회(글번호)");
-				System.out.println("4. 글 쓰기");
-				System.out.println("5. 글 수정");
-				System.out.println("6. 글 삭제");
-				System.out.println("0. 프로그램 종료");
-				System.out.print("메뉴 선택 ==> ");
-				sel = sc.nextInt();
-				sc.nextLine();
-				
-				switch(sel) {
-				case 1: System.out.println("로그아웃 되었습니다."); 
-						BoardController.loginMember = null; break;
-				case 2: bController.selectAll(); break;
-				case 3: bController.selectBoard(); break;
-				case 4: bController.insertBoard(); break;
-				case 5: bController.updateBoard(); break;
-				case 6: bController.deleteBoard(); break;
-				case 0: System.out.println("프로그램 종료"); break;
-				default : System.out.println("잘못 입력하셨습니다. 다시 입력해주세요.");
+				if(BoardController.loginMember.getMemberId().equals("user01")) {
+					System.out.println("1. 로그아웃");
+					System.out.println("2. 글 목록 조회");
+					System.out.println("3. 게시글 조회(글번호)");
+					System.out.println("4. 글 쓰기");
+					System.out.println("5. 글 수정");
+					System.out.println("6. 글 삭제");
+					System.out.println("7. 회원 정보 관리 ");
+					System.out.println("9. 프로그램 종료");
+					System.out.print("메뉴 선택 ==> ");
+					sel = sc.nextInt();
+					sc.nextLine();
+					
+					switch(sel) {
+					case 1: System.out.println("로그아웃 되었습니다."); 
+							BoardController.loginMember = null; break;
+					case 2: bController.selectAll(); break;
+					case 3: bController.selectBoard(); break;
+					case 4: bController.insertBoard(); break;
+					case 5: bController.updateBoard(); break;
+					case 6: bController.deleteBoard(); break;
+					case 7: bController.adminmainMenu(); break;
+					case 9: System.out.println("프로그램 종료"); return;
+					default : System.out.println("잘못 입력하셨습니다. 다시 입력해주세요.");
+					}
+				}else {
+					System.out.println("1. 로그아웃");
+					System.out.println("2. 글 목록 조회");
+					System.out.println("3. 게시글 조회(글번호)");
+					System.out.println("4. 글 쓰기");
+					System.out.println("5. 글 수정");
+					System.out.println("6. 글 삭제");
+					System.out.println("7. 내 정보 관리 ");
+					System.out.println("9. 프로그램 종료");
+					System.out.print("메뉴 선택 ==> ");
+					sel = sc.nextInt();
+					sc.nextLine();
+					
+					switch(sel) {
+					case 1: System.out.println("로그아웃 되었습니다."); 
+							BoardController.loginMember = null; break;
+					case 2: bController.selectAll(); break;
+					case 3: bController.selectBoard(); break;
+					case 4: bController.insertBoard(); break;
+					case 5: bController.updateBoard(); break;
+					case 6: bController.deleteBoard(); break;
+					case 7: bController.myInfoEdit(); break;
+					case 9: System.out.println("프로그램 종료"); return;
+					default : System.out.println("잘못 입력하셨습니다. 다시 입력해주세요.");
+					}
 				}
+				
 				
 			}
 			
@@ -69,6 +101,7 @@ public class BoardView {
 		Member loginMember = new Member();
 		
 		System.out.println("----- 로그인 -----");
+		System.out.println("----- 관리자 계정은 user01로 지정 -----");
 		System.out.print("ID : ");
 		loginMember.setMemberId(sc.nextLine());
 		
@@ -80,7 +113,7 @@ public class BoardView {
 
 
 	public void displayLoginSuccess() {
-		System.out.println(BoardController.loginMember.getMemberName() + "님 환영합니다.");
+		System.out.println("[관리자]"+BoardController.loginMember.getMemberName() + "님 환영합니다.");
 	}
 
 	public void displayLoginFail() {
@@ -100,14 +133,17 @@ public class BoardView {
 		System.out.println("서비스 요청 실패 : " + msg);
 	}
 	
-	public void selectAll(List<Board> bList) {
+	public void selectAll(List<Board> bList, List<Count> cList) {
+		
 		System.out.printf("%-3s %-15s %-10s %-15s\n",
-							"BNO", "TITLE", "WRITER", "CREATE_DATE");
+							"글번호", "글제목", "작성자", "작성일");
 		System.out.println("------------------------------------------");
 		for(Board b : bList) {
-			System.out.printf("%-3d %-15s %-10s %-15s\n",
+			System.out.printf("%-3s %-15s %-10s %-15s\n",
 						b.getbNo(), b.getTitle(), b.getWriter(), b.getCreateDate());
 		}
+	
+		
 	}	
 	
 	public int inputBNo() {
@@ -117,12 +153,13 @@ public class BoardView {
 		return no;
 	}
 
-	public void selectBoard(Board board) {
+	public void selectBoard(Board board,int count) {
+		count += 1;
 		System.out.println();
 		System.out.println("-------------------------------------------------");
 		System.out.println("글번호 : " + board.getbNo());
 		System.out.println("제목 : " + board.getTitle());
-		System.out.printf("작성자 : %-10s 작성일 %-15s\n",board.getWriter(), board.getCreateDate());
+		System.out.printf("작성자 : %-10s 작성일 %-15s 조회수 %3d \n",board.getWriter(), board.getCreateDate(), count);
 		System.out.println("-------------------------------------------------");
 		System.out.println(board.getContent());
 		System.out.println("-------------------------------------------------");
@@ -295,7 +332,12 @@ public class BoardView {
 		return no;
 	}
 
-	
+
+	public void displayMemberLoginSuccess() {
+		System.out.println(BoardController.loginMember.getMemberName() + "님 환영합니다.");		
+	}
+
+
 	
 }
 

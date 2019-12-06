@@ -6,14 +6,12 @@ import model.service.BoardService;
 import model.service.MemberService;
 import model.vo.Board;
 import model.vo.Comment;
+import model.vo.Count;
 import model.vo.Member;
 import view.BoardView;
 import view.MemberView;
 
-/**
- * 게시판 프로그램 Controller
- * @author Baek Dong Hyeon
- */
+
 public class BoardController {
 	private BoardService bService = new BoardService();
 	private MemberService mService = new MemberService();
@@ -21,12 +19,9 @@ public class BoardController {
 	private MemberView mView = new MemberView();
 	private BoardView view = new BoardView();
 	
-	// 로그인 정보를 유지할 Member 참조 변수 선언(Session 역할)
 	public static Member loginMember = null;
+	public static Count count = null;
 	
-	/**
-	 * 회원 로그인 
-	 */
 	public void login() {
 		
 		// id, pwd 입력
@@ -35,8 +30,14 @@ public class BoardController {
 		try {
 			loginMember = bService.login(inputLogin);
 			
-			if(loginMember != null) {
-				view.displayLoginSuccess();
+			if(loginMember != null) 
+			{
+				if(BoardController.loginMember.getMemberId().equals("user01")) {
+					view.displayLoginSuccess();
+					
+				}else {
+					view.displayMemberLoginSuccess();
+				}
 			}else {
 				view.displayLoginFail();
 			}
@@ -53,9 +54,9 @@ public class BoardController {
 		
 		try {
 			List<Board> bList = bService.selectAll();
-			
+			List<Count> cList = bService.CommSelectAll();
 			if(!bList.isEmpty()) {
-				view.selectAll(bList);
+				view.selectAll(bList,cList);
 			}else {
 				view.displaySuccess("조회 결과가 없습니다.");
 			}
@@ -68,20 +69,26 @@ public class BoardController {
 		
 		// 글 번호 입력 View
 		int bNo = view.inputBNo();
+		Count count = new Count();
 		while(true) {
 		try {
 			Board board = bService.selectBoard(bNo);
 			
 			if(board != null) {
-				view.selectBoard(board);
+				
+				count.setCount(bService.countBoard(bNo)); 
+				bService.updateCount(bNo,count.getCount());
+				
+					
+				view.selectBoard(board,count.getCount());
 				
 				List<Comment> cList = bService.selectCommAll(bNo);
 				
 				if(!cList.isEmpty()) {
 					view.commentAll(cList);
+					int commMenu = view.commMenu();
 					
 
-					int commMenu = view.commMenu();
 					
 					switch(commMenu) {
 					case 1: {
@@ -97,7 +104,7 @@ public class BoardController {
 						
 					}
 					case 2: {
-						view.selectBoard(board);
+						view.selectBoard(board,count.getCount());
 						view.commentAll(cList);
 						
 						int sel = view.selectComminput();
@@ -105,7 +112,8 @@ public class BoardController {
 						String memberId = bService.selectMemberId(sel);
 								
 						
-						if(BoardController.loginMember.getMemberId().equals(memberId)) {
+						if(BoardController.loginMember.getMemberId().equals(memberId)||
+								BoardController.loginMember.getMemberId().equals("user01")) {
 							
 							
 							String updateComm = view.updateComm();
@@ -124,14 +132,15 @@ public class BoardController {
 						}
 					}
 					case 3: {
-						view.selectBoard(board);
+						view.selectBoard(board,count.getCount());
 						view.commentAll(cList);
 						
 						int sel = view.selectComminput();
 						
 						String memberId = bService.selectMemberId(sel);
 								
-						if(BoardController.loginMember.getMemberId().equals(memberId)) {
+						if(BoardController.loginMember.getMemberId().equals(memberId)||
+								BoardController.loginMember.getMemberId().equals("user01")) {
 							int result = bService.deleteComm(sel);
 														
 							if(result > 0) {
@@ -152,19 +161,17 @@ public class BoardController {
 						
 					}
 					
-					
-					
-					
-					
 				}else {
-					view.displayFail("댓글이 존재하지 않습니다.");
+					view.displaySuccess("댓글이 존재하지 않습니다.");
 				}
 				
-				
+				break;
+					
 			}else {
 				view.displayFail("해당 글이 존재하지 않습니다.");
-			}
-			
+				}
+				
+		
 		} catch (Exception e) {
 			view.displayError("게시글 목록 조회 과정 중 오류 발생", e);
 		}
@@ -199,7 +206,9 @@ public class BoardController {
 		
 		try {
 			if(loginMember.getMemberId()
-					.equals(bService.selectWriter(bNo))){
+					.equals(bService.selectWriter(bNo)) ||
+					loginMember.getMemberId()
+					.equals("user01")){
 				
 				int sel = view.updateMenu();
 				
@@ -235,7 +244,9 @@ public class BoardController {
 		
 		try {
 			if(loginMember.getMemberId()
-					.equals(bService.selectWriter(bNo))){
+					.equals(bService.selectWriter(bNo))||
+					loginMember.getMemberId()
+					.equals("user01")) {
 				
 				if(view.deleteBoard() == 'Y') {
 					
@@ -283,7 +294,15 @@ public class BoardController {
 		
 				}
 	
-	
+	public void adminmainMenu() {
+		mView.adminmainMenu();
+	}
+
+
+	public void myInfoEdit() {
+		mView.mainMenu();
+		
+	}
 }
 
 
