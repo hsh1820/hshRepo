@@ -8,10 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
 
-/** Connection ø¨∞· ≈€«√∏¥
- * @author Jo You Sang
- *
- */
+
 public class JDBCTemplate {
 
 	private static Connection conn = null;
