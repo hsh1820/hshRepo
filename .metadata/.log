@@ -1808,3 +1808,6 @@ org.eclipse.jgit.errors.LockFailedException: Cannot lock C:\Users\user1\Document
 	at org.eclipse.jgit.api.AddCommand.call(AddCommand.java:154)
 	at org.eclipse.egit.ui.internal.staging.StagingView$54.run(StagingView.java:3473)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.equinox.security 1 0 2019-12-09 15:49:55.342
+!MESSAGE New keyring password generated. 
