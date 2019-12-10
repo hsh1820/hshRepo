@@ -1,0 +1,142 @@
+/*
+    DCL (DATA CONTROL LANGUAGE) : 데이터 제어 언어
+    DML : 컬럼단에서 수정, 삭제, 삽입 
+    DCL : 테이블단에서 접근권한 제어
+    
+    - 데이터베이스, 데이터베이스 객체에 대한 
+        접근 권한을 제어(부여,회수) 하는 언어
+        
+    DCL -> GRANT(권한부여), REVOKE (권한회수)
+    TCL -> COMMIT, ROLLBACK, SAVEPOINT      
+
+
+*/
+-- 권한은 크게 시스템, 객체 권한으로 나뉘어 있음
+
+-- 시스템 권한 부여
+-- 사용자에게 권한을 부여할 때 사용
+
+/*
+    [ 표기법 ]
+    GRANT 권한1, 권한2, ...
+    TO 사용자계정명;
+    
+    * 시스템 권한의 종류
+    CREATE SESSION          : 데이터베이스 접속 권한
+    CREATE TABLE             : 테이블 생성 권한
+    CREATE VIEW              : 뷰 생성 권한
+    CREATE SEQUENCE       : 시퀀스 생성 권한
+    CREATE PROCEDURE     : 프로시져 함수 생성 권한    
+    CREATE USER              : 계정 생성 권한
+    DROP USER                : 계정 삭제 권한
+    DROP ANY TABLE        : 임의의 테이블 삭제 권한
+*/
+
+/*
+    계정의 종류
+    1) 관리자 계정 (SYS AS SYSDBA, SYSTEM)
+    데이터베이스의 생성과 관리를 담당하는 계정으로 
+    모든 권한과 책임을 가지는 계정
+    
+    2) 사용자 계정 (EX) KH .. )
+    데이터베이스에 대하여 질의, 갱신, 보고서 작성 등의 작업을 
+    수행할 수 있는 계정으로 
+    업무에 필요한 최소한의 권한만을 가지는 것을 원칙으로 함
+*/
+
+
+-- 테스트용 계정 SAMPLE 생성
+CREATE USER sample IDENTIFIED BY sample;
+--> CMD -> SQLPLUS실행
+    --> sample 계정 로그인 
+    -- user SAMPLE lacks CREATE SESSION privilege; logon denied
+    --> 접속 권한이 없어서 로그인 불가능 상태
+    
+-- KH 계정으로 sample계정에 DB 접속 권한 부여
+GRANT CREATE SESSION TO sample;
+-- ORA-01031: insufficient privileges
+-- 01031. 00000 -  "insufficient privileges"
+-- 해당 계정은 권한을 부여할 권한이 없다는 오류
+-- KH 계정에는 DB 접속 권한을 부여할 권한이 없어서 오류 발생
+
+-- 관리자 계정으로 sample계정에 DB 접속 권한 부여
+GRANT CREATE SESSION TO sample;
+--> 접속권한 부여 성공
+--> 다시 SQLPLUS 에서 SAMPLE 로그인
+-- ORA-01031: insufficient privileges
+--> 테이블 생성 권한이 없어서 에러 발생
+
+-- 관리자 계정으로 테이블 생성 권한을 부여
+GRANT CREATE TABLE TO sample;
+--> 다시 SQLPLUS에서 테이블 생성
+--> ORA-01950: no privileges on tablespace 'SYSTEM'
+
+-- tablespace 테이블 스페이스 
+-- 테이블, 뷰, 인덱스 등 DB 객체들이 저장되는 논리적 공간 
+-- 테이블 스페이스 할당량 부여
+-- ALTER USER sample QUOTA 2M ON SYSTEM;
+--SAMPLE 유저에게 2MB의 공간을 할당하겠다
+-- 다시 SQLPLUS에서 테이블 생성
+
+----------------------------------------------------------------------
+
+-- 객체 권한 부여
+
+-- 객체 권한 : 특정 DB 객체를 조작(DML)할 수 있는 권한을 부여
+
+/*
+    [ 표기법 ]
+    GRANT 권한종류 [ (컬럼명) ] | ALL 
+    ON 객체명(EX)테이블명 | ROLE 이름 | PUBLIC 
+    TO 사용자계정명
+    
+    * 객체 권한 종류
+    [ 권한 종류 ]         [ 설정 객체 ]
+    SELECT (조회)         TABLE, VIEW, SEQUENCE 
+    INSERT (삽입)         TABLE, VIEW
+    UPDATE                TABLE, VIEW
+    DELETE                 TABLE, VIEW
+    ALTER                  TABLE, SEQUENCE
+    REFERENCES           TABLE
+    INDEX                   TABLE 
+    EXECUTE                PROCEDURE
+*/
+
+
+
+
+
+
+
+
+
+SELECT * FROM MEMBER ;
+INSERT INTO MEMBER VALUES('MEM5', '12345678','이순신',SYSDATE);
+--COMMIT; -- 현재 변경 사항 DB에 반영
+
+DELETE FROM MEMBER 
+WHERE MEMBER_ID = 'MEM5';
+SELECT * FROM MEMBER;
+
+--ROLLBACK; -- 변경사항을 반영하지 않고 최근 COMMIT 상태로 돌아감
+
+SELECT * FROM MEMBER;
+
+DELETE FROM MEMBER 
+WHERE MEMBER_ID = 'MEM5';
+
+-- MEM5가 삭제된 상태를 SAVEPOINT 로 지정
+SAVEPOINT SP1;
+
+DELETE FROM MEMBER 
+WHERE MEMBER_ID = 'MEM4';
+
+-- 삭제확인
+SELECT * FROM MEMBER;
+
+ROLLBACK TO SP1;
+-- SAVEPOINT 까지는 BUFFER 내부
+
+-- 롤백확인
+SELECT * FROM MEMBER;
+
