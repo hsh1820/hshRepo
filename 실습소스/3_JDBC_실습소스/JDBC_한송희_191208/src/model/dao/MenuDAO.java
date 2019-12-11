@@ -59,7 +59,7 @@ public class MenuDAO {
 		return menuList;
 	}
 
-	public int updateSubMenu(Connection conn, String chooseFood) throws Exception{
+	public int updateSubMenu(Connection conn, String chooseFood, int quantity) throws Exception{
 		PreparedStatement pstmt = null;
 		int result = 0;
 		
@@ -67,7 +67,8 @@ public class MenuDAO {
 		
 		try {
 			pstmt = conn.prepareStatement(query);
-			pstmt.setString(1, chooseFood);
+			pstmt.setInt(1, quantity);
+			pstmt.setString(2, chooseFood);
 			
 			result = pstmt.executeUpdate();
 			

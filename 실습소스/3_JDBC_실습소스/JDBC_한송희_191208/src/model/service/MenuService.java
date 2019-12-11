@@ -21,11 +21,11 @@ public class MenuService {
 		return menuDAO.selectSubMenu(conn,sel);
 	}
 
-	public int updateSubMenu(String chooseFood) throws Exception {
+	public int updateSubMenu(String chooseFood, int quantity) throws Exception {
 		Connection conn = getConnection();
 		MenuDAO menuDAO = new MenuDAO();
 		
-		return menuDAO.updateSubMenu(conn,chooseFood);
+		return menuDAO.updateSubMenu(conn,chooseFood, quantity);
 	}
 
 

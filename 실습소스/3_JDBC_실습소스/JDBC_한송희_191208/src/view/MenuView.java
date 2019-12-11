@@ -92,6 +92,7 @@ public class MenuView {
 		return select;
 	}
 
+	
 		
 	public Member inputEmailPassword() {
 		System.out.println("\n[ 로그인  ]");
@@ -144,16 +145,27 @@ public class MenuView {
 		System.out.println("서비스 요청 실패 : " + msg);
 	}
 
-	public void displayreceipt(List<OrderFood> oList) {
+	public char displayreceipt(List<OrderFood> oList) {
 		int hap = 0;
-		System.out.println("┌──────── 영수증  ────────┐");
+		System.out.println("┌────────────── 영수증  ──────────────┐");
 		System.out.println("상품명\t"+"수량\t"+"가격");
 		for(OrderFood or : oList) {
 			System.out.printf("%10s\t%3d\t%10d\n",or.getMenuName(),or.getQuantity(), or.getPrice());
 			hap+= or.getPrice();
 		}
-		System.out.println("────────────────────────");
-		System.out.printf("\t\t총" + hap + "원");
+		System.out.println("────────────────────────────────────");
+		System.out.printf("\t\t\t총" + hap + "원\n");
+		System.out.print("메인으로 돌아가시겠습니까?(Y/N: 영수증 재출력) : ");
+		char yn = sc.nextLine().toUpperCase().charAt(0);
+		return yn;
+	}
+
+	public int dispalyQuantity(int quantity) {
+		System.out.print("주문 수량 : ");
+		int quan = sc.nextInt();
+		sc.nextLine();
+		
+		return quan;
 	}
 
 
