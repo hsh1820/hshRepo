@@ -74,6 +74,7 @@ public class MenuView {
 	
 	public int displaySubMenu(Map<Integer,Menu> menu, String menuTitle) {
 		int i = 1;
+		int select = 0;
 		
 		System.out.println("\n ─────────────────── "+ menuTitle +" ─────────────────── \n");
 		
@@ -85,8 +86,9 @@ public class MenuView {
 					+ "\t남은 수량 : " + menu.get(key).getMenuQuantity());
 			i++;
 		}
-		System.out.print("\n [ 주문할 메뉴 번호 입력 ] : ");
-		int select = sc.nextInt();
+		System.out.println("\t0. 뒤로가기");
+		System.out.print("\n [ 메뉴 번호 입력 ] : ");
+		select = sc.nextInt();
 		sc.nextLine();
 		
 		return select;
@@ -149,12 +151,16 @@ public class MenuView {
 		int hap = 0;
 		System.out.println("┌────────────── 영수증  ──────────────┐");
 		System.out.println("상품명\t"+"수량\t"+"가격");
-		for(OrderFood or : oList) {
-			System.out.printf("%10s\t%3d\t%10d\n",or.getMenuName(),or.getQuantity(), or.getPrice());
-			hap+= or.getPrice();
+		if(!oList.isEmpty()) {
+			for(OrderFood or : oList) { 
+				System.out.printf("%10s\t%3d\t%10d\n",or.getMenuName(),or.getQuantity(), or.getPrice());
+				hap+= or.getPrice();
+			}
+			System.out.println("────────────────────────────────────");
+			System.out.printf("\t\t\t총" + hap + "원\n");
+		}else {
+			System.out.println("주문하신 메뉴가 없습니다.");
 		}
-		System.out.println("────────────────────────────────────");
-		System.out.printf("\t\t\t총" + hap + "원\n");
 		System.out.print("메인으로 돌아가시겠습니까?(Y/N: 영수증 재출력) : ");
 		char yn = sc.nextLine().toUpperCase().charAt(0);
 		return yn;

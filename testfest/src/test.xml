@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<response>
+<header>
+<resultCode>0000</resultCode>
+<resultMsg>OK</resultMsg>
+</header>
+<body>
+<items>
+<item>
+<addr1>서울특별시 종로구 인사동길 56</addr1>
+<addr2>(관훈동)</addr2>
+<areacode>1</areacode>
+<booktour>0</booktour>
+<cat1>A02</cat1>
+<cat2>A0206</cat2>
+<cat3>A02060500</cat3>
+<contentid>130402</contentid>
+<contenttypeid>14</contenttypeid>
+<createdtime>20071106015541</createdtime>
+<firstimage>http://tong.visitkorea.or.kr/cms/resource/19/1550819_image2_1.jpg</firstimage>
+<firstimage2>http://tong.visitkorea.or.kr/cms/resource/19/1550819_image3_1.jpg</firstimage2>
+<homepage>가나아트스페이스 <a href="http://gana.insaartcenter.com" title="새창 : 가나아트스페이스 홈페이지로 이동" target="_blank">http://gana.insaartcenter.com</a></homepage>
+<mapx>126.9839369528</mapx>
+<mapy>37.5749922502</mapy>
+<mlevel>6</mlevel>
+<modifiedtime>20181226095951</modifiedtime>
+<overview>인사동 거리 초입에 위치하여 편리하고, 상징적인 장소성을 지닌 가나아트스페이스는 신진과 중견, 개인과 단체,지역을 막론하고 역량있는 활력을 보이는 작가에게 개방하고자 한다. 무성의, 무성격한 대관 전시장을 탈피하여 개방적이고 유연한 과정을 거치되 공정한 기준으로 운영하는 가나아트스페이스는 전혀 새로운 대관전시 양식을 창출해 나갈 것이다.&lt;br&gt;</overview>
+<sigungucode>23</sigungucode>
+<title>가나아트스페이스</title>
+<zipcode>03146</zipcode>
+</item>
+</items>
+<numOfRows>10</numOfRows>
+<pageNo>1</pageNo>
+<totalCount>1</totalCount>
+</body>
+</response>

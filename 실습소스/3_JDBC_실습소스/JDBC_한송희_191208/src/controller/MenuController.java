@@ -24,7 +24,10 @@ public class MenuController {
    			menu = nService.selectSubMenu(sel);
 			
 			if(!menu.isEmpty()) {
-				chooseFoodNo = view.displaySubMenu(menu,menu.get(1).getCateTitle()); 
+				chooseFoodNo = view.displaySubMenu(menu,menu.get(1).getCateTitle());
+				if(chooseFoodNo == 0) {
+					view.mainMenu();
+				}
 				quantity = view.dispalyQuantity(quantity);
 				
 				if(chooseFoodNo > 0 && chooseFoodNo < (menu.size()+1)) { 
@@ -54,7 +57,8 @@ public class MenuController {
 					}
 					oList.add(order);
 					view.mainMenu();
-				}else {
+				}
+				else {
 					System.out.println("다시 입력해 주세요. ");
 					selectMenu(sel);
 				}
