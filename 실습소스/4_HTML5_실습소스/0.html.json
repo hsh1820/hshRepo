@@ -1,0 +1,29 @@
+{
+	
+//  C:\Users\user1\AppData\Roaming\Code\User\snippets\html.json
+
+"html" : {
+	"prefix" : "html",
+	"body" : [
+		"<!DOCTYPE html>",
+		"<html lang = \"ko\">" ,
+			"\t<head>",
+			"\t<meta charset = \"UTF-8\">",
+			"\t\t<title> </title> " , 
+			"\t</head>" ,
+			"\t<body>\n" ,
+			"\t</body>" ,
+			" </html>" 
+		] ,
+		"description" : "html"
+		} ,
+
+	"&lt; &gt;" : {
+		"prefix": "lt, gt",
+		"body": [
+			"&lt;$1&gt;"
+		],
+		"description": "<> 태그 표시"
+	}
+	
+}

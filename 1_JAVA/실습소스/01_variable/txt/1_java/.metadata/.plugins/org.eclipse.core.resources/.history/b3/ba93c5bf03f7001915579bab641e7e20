@@ -1,8 +1,0 @@
-package com.kh.operator;
-
-public class A_LogicalNegation {
-
-	// 논리 부정 연산자 : !
-	// 
-	
-}

@@ -1,6 +1,0 @@
-package testProject; //패키지 선언 : 현재 class 파일이 어디 위치에 있는지 표시(선언)
-
-public class HelloWorld {
-	public static void main(String[] args) {
-		System.out.println("Hellow World!!");	}
-}

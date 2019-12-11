@@ -1,8 +1,0 @@
-package com.kh.run;
-
-public class Run {
-	
-	public static void main(String[] args) { //아무 기능 엇어야함, 호출만 선언
-		
-	}
-}

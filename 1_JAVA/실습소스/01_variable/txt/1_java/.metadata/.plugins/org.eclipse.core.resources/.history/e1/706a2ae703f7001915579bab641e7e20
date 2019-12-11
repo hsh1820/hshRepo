@@ -1,9 +1,0 @@
-package com.kh.variable;
-
-public class E_OverFlow {
-	
-		// 오버플로우 확인하기
-		public void overflow() {
-			
-		}
-}

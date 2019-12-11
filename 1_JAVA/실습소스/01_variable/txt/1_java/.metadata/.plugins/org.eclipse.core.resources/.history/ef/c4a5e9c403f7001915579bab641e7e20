@@ -1,9 +1,0 @@
-package com.kh.variable;
-
-public class C_Constant {
-	
-	public void finalKeyword() {
-		
-	}
-	
-}
