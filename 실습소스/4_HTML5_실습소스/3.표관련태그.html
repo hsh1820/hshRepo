@@ -5,9 +5,18 @@
         <title>3. 표 관련 태그 </title> 
 
         <style>
-            table{ /* 테이블 태그 스타일 지정 */
-                background-color :lightskyblue
+            table { /* 테이블 태그 스타일 지정 */
+                background-color :teal;
               }
+            thead {
+                background-color: lightslategrey;
+            }  
+            tbody {
+                background-color:darkslategray;
+            }
+            tfoot {
+                background-color:steelblue;
+            }
         </style>
     </head>
     <body>
@@ -124,6 +133,45 @@
              </tr>
          </table>
 
+         <hr>
+
+         <h1>테이블 구조 설정 태그</h1>
+
+         <table border="1">
+            <thead>
+                <tr>
+                    <th>이름</th>
+                    <th>성별</th>
+                    <th>주소</th>
+                </tr>
+            </thead>
+
+
+            <tbody>
+                <tr>
+                    <td>백동현</td>
+                    <td>남자</td>
+                    <td>서울시 관악구</td>
+                </tr>
+                <tr>
+                    <td>박준건</td>
+                    <td>남자</td>
+                    <td>경기도 고양시</td>
+                </tr>
+                <tr>
+                    <td>조미현</td>
+                    <td>여자</td>
+                    <td>서울시 성북구</td>
+                </tr>
+            </tbody>
+
+            <tfoot>
+                <tr>
+                    <td colspan="2">총 인원</td>
+                    <td>3명</td>
+                </tr>
+            </tfoot>
+         </table>
 
     </body>
  </html>
