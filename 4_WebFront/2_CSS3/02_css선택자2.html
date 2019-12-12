@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang = "ko">
+    <head>
+    <meta charset = "UTF-8">
+        <title> 02_css선택자2</title> 
+        <style>
+            #active-test, #hover-test {
+                background-color: orangered;
+                color: white;
+                width: 300px;
+                height: 300px;
+            }
+            
+            /* 반응 선택자 */
+            #active-test:active{
+                background-color: black;
+                color : yellow;
+            }
+            
+            #hover-test:hover {
+                width : 500px;
+                height : 500px;
+            }
+            </style>
+        
+    </head>
+    <body>
+        <h3>반응 선택자</h3>
+        <p> 사용자의 움직임에 따라 동작을 하는 선택자</p>
+        <pre>
+            사용자가 클릭한 경우 : 선택자 : active(설정 내용)
+            사용자가 마우스를 태그위에 올려두는 경웅
+            선택자 : hover {설정 내용
+        </pre>
+
+        <div id = "active-test">active 테스트</div><br>
+        <div id = "hover-test">hover 테스트</div>
+    </body>
+ </html>
