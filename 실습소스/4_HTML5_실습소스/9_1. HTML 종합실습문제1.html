@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang = "ko">
+    <head>
+    <meta charset = "UTF-8">
+        <title> 9_2. HTML종합실습문제2</title> 
+    </head>
+    <body>
+        <form>
+            <fieldset>
+                <legend>납품자 정보</legend>
+                <p>
+                    <label for="selerName">1. 납품자명(필수) : </label>
+                    <input type="text" id="selerName" required>
+                </p>
+
+                <p>
+                    <label for="selerEmail">2. email(필수) : </label>
+                    <input type="email" id="selerEmail" placeholder="answer@naver.com" required>
+                </p>
+                <p>
+                    <label for="selerUrll">3. 홈페이지 : </label>
+                    <input type="url" id="selerUrll" value="http://">
+                </p>
+                <p>
+                    <label for="selerUrll">4. 지역 : </label>
+                    <select>
+                        <option selected>부산</option>
+                    </select>
+                </p>
+            </fieldset>
+
+            <fieldset>
+                <legend>납품 정보</legend>
+                <p>
+                    <label>
+                        <ul>
+                            <li><p>상품명(필수) : 
+                                <input type="text" required>
+                            </p></li>
+                            <li><p>납품수량(필수) : 
+                                <input type="number" min="100" placeholder="최소 100" required>
+                            </p></li>
+                            <li><p>
+                                납품 등급(필수) : 
+                                <input type="range" value="50">
+                            </p></li>
+                            <li><p>
+                                기타사항 : 
+                                <textarea></textarea>
+                            </p></li>
+                        </ul>
+                    </label>
+                </p>
+            </fieldset>
+        </form>
+        <p><button>send message</button></p>
+    </body>
+ </html>
