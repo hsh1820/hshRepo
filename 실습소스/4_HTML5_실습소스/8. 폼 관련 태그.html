@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang = "ko">
+    <head>
+    <meta charset = "UTF-8">
+        <title>폼 관련 태그</title> 
+    </head>
+    <body>
+        <h1>폼 관련 태그</h1>
+        <p>
+            &lt;form&gt; 태그는 HTML에서 사용자가 입력할 수 있는 양식을 제공하는 태그<br>
+            form 태그 내에 &lt;input&gt; 태그를 통해 사용자가 입력한 정보를 서버 또는 다른 페이지로<br>
+            전달하는 역할을 함. 
+        </p>
+        <pre>
+            form 태그 속성 
+            *  name : form태그의 고유 이름을 지정하는 태그
+                         form태그들 끼리 구분을 위해 사용
+
+            *  action : form태그 내부에 입력된 데이터를 
+                          전송받아 처리할 서버 또는 페이지의 URL 작성. 
+            
+            * method : 데이터 전송 방식 지정
+            - get : URL창에 데이터를 담아 전달하는 방식(전달되는 데이터가 눈에 보임)
+            장점 : caching. 단점 : 전달하는 데이터의 크기에 제한이 있음(256 ~ 4096 byte(브라우저나 운영체제에따라 다름))
+            
+            - post : HTTP 요청(request)에 데이터를 담아 전달하는 방식. 
+            (전달되는 데이터가 보이지 않음)
+            전달하는 데이터 크기에 제한이 없음. 
+
+            * target : action속성에 지정된 페이지를 어떻게 보여줄 것인가 지정하는 속성
+        </pre>
+
+        <hr>
+        
+        <form>
+            <!-- label 태그 : input 태그에 대한 간단한 설명을 작성하는 태그 -->
+            <label>검색할 내용</label>
+            <input type="text" size="20" name="search">&nbsp;&nbsp;
+            <input type="submit" value="검색">
+        </form>
+        <p>
+            submit 버튼을 클릭 시 action에 지정된 경로로
+            지정된 method(전송방식)에 따라
+            input태그 값들을 전송함. <br>
+
+            - action 미작성 시 현재페이지로 데이터 전송
+            - method 미작성 시 기본값은 get방식
+        </p>
+
+            <hr>
+
+                <h3>fieldset 태그 : 폼 요소를 그룹으로 묶는 태그</h3>
+                <h3>legend 태그 : 묶은 폼 요소에 명칭을 붙이는 태그</h3>
+
+                <form>
+                    <fieldset>
+                        <legend>필드셋의 제목을 작성하는 부분</legend>
+                        <label>입력 1 : </label> <input type="text"><br>
+                        <label>입력 2 : </label> <input type="text"><br>
+                        <label>입력 3 : </label> <input type="text"><br>
+                    </fieldset>
+                    <fieldset>
+                        <legend>필드셋으로 묶은 영역별로 구분됨.</legend>
+                        <label>입력 1 : </label> <input type="text"><br>
+                        <label>입력 2 : </label> <input type="text"><br>
+                        <label>입력 3 : </label> <input type="text"><br>
+                    </fieldset>
+                </form>
+            <hr>
+
+            <h2>text와 관련된 input 태그</h2>
+
+        <form name="textForm" method="GET">
+            <h3>type="text"</h3>
+            <p> - 한 줄 짜리 텍스트를 입력할 수 있는 텍스트 상자 또는 입력 상자</p>
+            <label>아이디 : </label>
+            <input type="text" name="userId" size="20" maxlength="20" 
+                    placeholder="아이디를 입력하세요.">
+
+            <br>
+
+            <h3>type="password"</h3>
+            <p>- 비밀번호를 입력할 수 있는 텍스트 상자</p>
+            <label>비밀번호 : </label>
+            <input type="password" name="userPwd"  size="20" maxlength="20"
+                    placeholder="비밀번호를 입력하세요.">
+            
+            <br>
+
+            <h3>type="search" / "url" / "email" / "tel"</h3>
+            <p>- 겉모습은 type="text"와 비슷하지만<br>
+                    각각의 정보에 맞게 분화된 기능을 제공하는 텍스트 상자<br>
+                    + 유효성 검사
+            </p>
+            <label>검색 : </label>
+            <input type="search" name="searchText" placeholder="검색 내용 입력"><br>
+            <label>홈페이지 : </label>
+            <input type="url" name="urlText" value="https://"><br>
+            <label>이메일 : </label>
+            <input type="email" name="emailText" placeholder="이메일 입력"><br>
+            <label>전화번호 : </label>
+            <input type="tel" name="telText" placeholder="전화번호 입력"><br>
+            
+
+            
+        </form>
+
+    </body>
+ </html>
