@@ -100,10 +100,49 @@
             <input type="email" name="emailText" placeholder="이메일 입력"><br>
             <label>전화번호 : </label>
             <input type="tel" name="telText" placeholder="전화번호 입력"><br>
-            
 
-            
+            <input type="submit" value="전송"> &nbsp; 
+            <input type="reset" value="다시 입력">
         </form>
 
+        <hr>
+        <h2>숫자 관련 input 태그</h2>
+
+        <form name="numberForm" method="GET">
+        <h3>type="number"</h3>
+        <p>
+            텍스트 상자에 숫자만 입력 가능하게 하는 태그.<br>
+            + 브라우저의 종류에 따라 스핀박스가 표시되기도 함. <br>
+            스핀박스 : 숫자 입력창에 증감 버튼 
+        </p>
+        <label> 수량 : </label>
+        <input type="number" name="amount"
+                min="0" max="100" value="0" step="10">
+        
+        <h3>type="range"</h3>
+        <p>슬라이드바를 통해 숫자 지정</p>
+        <input type="range" name="point" min="0" max="50" value="0" step="10">
+
+        <input type="submit" value="전송">
+    </form>
+
+    <hr>
+    <h2>날짜/시간 관련 input 태그</h2>
+    <h3>type="date" / "month" / "week" / "time" / 
+        "datetime" / "datetime-local" </h3>
+        
+        <label>date : </label>
+        <input type="date" name="dateInput"><br>
+        <label>month : </label>
+        <input type="month" name="monthInput"><br>
+        <label>week : </label>
+        <input type="week" name="weekInput"><br>
+        <label>time : </label>
+        <input type="time" name="timeInput"><br>
+        <label>datetime : </label>
+        <!-- datetime : 문자포함 날짜입력하면 String형으로 날짜 인식 -->
+        <input type="datetime" name="datetimeInput"><br>
+        <label>datetime-local : </label>
+        <input type="datetime-local" name="datetime-localInput"><br>
     </body>
  </html>
