@@ -130,7 +130,7 @@
     <h2>날짜/시간 관련 input 태그</h2>
     <h3>type="date" / "month" / "week" / "time" / 
         "datetime" / "datetime-local" </h3>
-        
+        <form name="dateForm" method="get">
         <label>date : </label>
         <input type="date" name="dateInput"><br>
         <label>month : </label>
@@ -144,5 +144,89 @@
         <input type="datetime" name="datetimeInput"><br>
         <label>datetime-local : </label>
         <input type="datetime-local" name="datetime-localInput"><br>
+
+        <input type="submit" value="전송">
+    </form>
+
+    <h2>라디오 버튼 & 체크박스 input 태그</h2>
+    <p>
+        태그를 여러 개 선언하여 하나의 용도로 사용함<br>
+          -> 각 태그의 name 속성을 동일하게 작성하여 그룹 형성
+    </p>
+
+    <form name="radio_checkForm"  method="GET">
+        <h3>type="radio"</h3>
+        <label>성별 : </label>
+        <label for="male">남</label>
+        <input type="radio" value="M" name="gender" id="male">
+
+        <label for="female">여</label>
+        <input type="radio" value="F" name="gender" checked id="female">
+
+        <h3>type="checkbox"</h3>
+        <label>취미 : </label>
+        <input type="checkbox" id="baseball" name="hobby" value="baseball">
+        <label for="baseball">야구</label>&nbsp;
+
+        <input type="checkbox" id="basketball" name="hobby" value="basketball">
+        <label for="basketball">농구</label>&nbsp;
+
+        <input type="checkbox" id="football" name="hobby" value="football">
+        <label for="football">축구</label>&nbsp;
+
+        <input type="submit" value="전송">
+        <input type="reset" value="취소">
+    </form>
+
+        <h2>추가 input 태그</h2>
+        <form name="addForm" method="GET">
+            <h3>type="color"</h3>
+            <label>색상 선택 : </label>
+            <input type="color" name="color"><br>
+            
+            <h3>type="file"</h3>
+            <label>파일 선택 : </label>
+            <input type="file" name="file"><br>
+
+            <h3>type="hidden"</h3>
+            <label>안보임 -> </label>
+            <input type="hidden" name="hidden" value="hello" ><br>
+            <!-- 특정 값을 화면에 노출시키지 않고 전송하고 싶을 경우 사용 -->
+
+            
+            <h3>type="button"</h3>
+            <input type="button" value="일반버튼"> 
+            <!--  -->
+            <input type="submit" value="전송">
+            <!-- submit : form 태그 안에 내용을 전송 -->
+
+            <h3>button 태그</h3>
+            <button>button</button>
+            <!-- 
+                button 태그에 type이 지정되지 않고
+                form 태그 내부에 존재하는 경우
+                type이 자동으로 submit으로 설정됨.
+             -->
+
+             <button type="button">일반 버튼</button>
+             <button type="reset">리셋버튼</button>
+             <button type="submit">제출버튼</button>
+        </form>
+        
+        <h2>select, option 태그</h2>
+
+        <form name="selectForm" method="GET">
+            <label>지역번호 : </label>
+            <select>
+                <option value="02">서울(02)</option>
+                <option value="031">경기(031)</option>
+                <option value="032">인천(032)</option>
+                <option value="033">강원(033)</option>
+                <option value="041">충남(041)</option>
+                <option value="042">대전(042)</option>
+                <option value="043">충북(043)</option>
+                <option value="044" selected>세종(044)</option>
+            </select>
+        </form>
     </body>
  </html>
