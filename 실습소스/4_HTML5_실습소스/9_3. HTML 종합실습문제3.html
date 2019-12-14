@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang = "ko">
+    <head>
+    <meta charset = "UTF-8">
+        <title>9_3. HTML종합실습문제3 </title> 
+        </style>
+    </head>
+    <body>
+        <h1>회원가입</h1>
+            <form style="border: 1px solid black; width: 450px;" method="POST">
+            <fieldset>
+                <legend>필수 입력사항</legend>
+                <table>
+                    <tr>
+                        <th>ID</th> 
+                        <td>
+                            <input type="text" placeholder="아이디 10글자 이내">&nbsp;&nbsp;
+                            <button>중복확인</button>
+                        </td>                   
+                    </tr>
+                    <tr>
+                        <th>비밀번호</th> 
+                        <td>
+                            <input type="password" size="29" placeholder="영문,숫자,특수문자 포함 8자 이상">&nbsp;&nbsp;
+                        </td>                   
+                    </tr>
+                    <tr>
+                        <th>비밀번호 확인</th> 
+                        <td colspan="2"><input type="text" size="29" >&nbsp;&nbsp;
+                        </td>                   
+                    </tr>
+                    <tr>
+                        <th>Email</th> 
+                        <td>
+                            <input type="email">&nbsp;&nbsp;
+                            <select>
+                                <option selected>직접입력</option>
+                            </select>
+                        </td>                   
+                    </tr>
+                </table>
+        </fieldset>
+        <fieldset>
+            <legend>추가 정보</legend>
+            <label>프로필 사진 <input type="file"></label><br><br>
+            <label >성별 : </label>
+            <input type="radio" name = "gender" checked> 남자 
+            <input type="radio" name = "gender"> 여자 <br><br>
+            <label>생년월일 : </label>
+            <input type="date"><br><br>
+            <label>취미</label><br>
+            <input type="checkbox">야구
+            <input type="checkbox">농구
+            <input type="checkbox">축구<br>
+            <input type="checkbox" checked>공부
+            <input type="checkbox">야구<br>
+            <input type="checkbox">기타 : 
+            <input type="text"><br>
+            <br>
+            자기소개<br>
+            <textarea rows="4" cols="50" style="resize: none"></textarea>
+        </fieldset>
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;
+        <button>회원가입</button>
+        <button>다시입력</button>
+        <button>이전으로</button><br><br>
+    </form>
+    </body>
+ </html>
